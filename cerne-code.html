@@ -1,11 +1,45 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cerne Code — Ruvian Fabrin</title>
-  <meta name="description" content="Cerne Code: agente de código local em app desktop (Tauri + Rust + Vue). O que faz, ferramentas, providers suportados e como funciona por dentro." />
+  <meta name="description" content="Cerne Code: free, local, open-source coding agent. Desktop app with GUI — edit files, run commands, search the web, create documents, control the screen, and more." />
   <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .lang-bar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s var(--ease);
+    }
+    .lang-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .lang-btn.active {
+      background: var(--text);
+      color: #fff;
+      border-color: var(--text);
+    }
+    .lang-section {
+      display: none;
+    }
+    .lang-section.active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -20,196 +54,887 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="wrap">
-        <span class="eyebrow">Tauri · Rust · Vue 3 · MIT</span>
-        <h1>Um agente de código que roda no seu computador.</h1>
-        <p class="lede">
-          Cerne Code lê, edita e cria arquivos de verdade, roda comandos, gera documentos, pesquisa
-          na web e pode até controlar a tela — tudo local, com a opção de um modelo 100% local (nada
-          sai da sua máquina) ou um provider de API à sua escolha.
-        </p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.0/Cerne.Code_0.1.0_x64-setup.exe">Baixar para Windows (v0.1.0)</a>
-          <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">Ver no GitHub</a>
-        </div>
-      </div>
-    </section>
-
+    <!-- Language bar -->
     <div class="wrap">
-      <div class="shot" style="background-image:url('assets/img/cerne-main.png')">
-        <span class="shot-label">Tela principal — chat com o agente, composer e barra lateral de sessões</span>
+      <div class="lang-bar">
+        <button class="lang-btn active" data-lang="en">🇺🇸 English</button>
+        <button class="lang-btn" data-lang="pt-BR">🇧🇷 Português</button>
+        <button class="lang-btn" data-lang="es">🇪🇸 Español</button>
+        <button class="lang-btn" data-lang="zh">🇨🇳 中文</button>
       </div>
     </div>
 
-    <section class="feature-section">
-      <div class="wrap">
-        <span class="eyebrow">O que é</span>
-        <h2>O mesmo agente de linha de comando, numa janela de verdade.</h2>
-        <p class="lede">
-          Cerne Code é um app desktop nativo pra Windows, construído com <strong>Tauri v2</strong>
-          (backend em Rust) e <strong>Vue 3</strong> no frontend. A ideia é dar pra qualquer pessoa a
-          mesma experiência de um agente de codificação por linha de comando — só que com histórico
-          de sessões, visualização de diff, anexos e tudo mais que uma interface gráfica permite que
-          um terminal não dá de graça.
-        </p>
-        <p class="lede">
-          É <strong>local-first</strong> por decisão de design: o app roda inteiramente no seu
-          computador, e você escolhe se o modelo por trás também roda localmente (llama.cpp, Ollama,
-          LM Studio) ou se prefere um provider de API. Os dois caminhos recebem o mesmo cuidado.
-        </p>
-      </div>
-    </section>
+    <!-- ====== ENGLISH ====== -->
+    <div class="lang-section active" id="lang-en">
 
-    <section class="feature-section">
-      <div class="wrap">
-        <span class="eyebrow">Providers</span>
-        <h2>Quatro formas de conectar um modelo.</h2>
-        <p class="lede">Todos falam o mesmo protocolo — trocar de um pro outro é só trocar a seleção.</p>
-        <div class="mini-grid">
-          <div>
-            <h3>OpenRouter</h3>
-            <p>Dezenas de modelos de API (Claude, GPT, Gemini) por uma única chave.</p>
-          </div>
-          <div>
-            <h3>llama.cpp local</h3>
-            <p>Múltiplos "forks" configuráveis — o app sobe e derruba o servidor sozinho.</p>
-          </div>
-          <div>
-            <h3>Ollama &amp; LM Studio</h3>
-            <p>Os dois runtimes locais mais usados, com detecção automática de modelos.</p>
-          </div>
-          <div>
-            <h3>Provider customizado</h3>
-            <p>Qualquer endpoint compatível com a API de chat completions da OpenAI.</p>
+      <section class="hero">
+        <div class="wrap">
+          <span class="eyebrow">Tauri · Rust · Vue 3 · MIT — Free &amp; Open Source</span>
+          <h1>A coding agent that lives on your machine.</h1>
+          <p class="lede">
+            Cerne Code is a native desktop app that turns any language model into a real coding agent.
+            Edit files, run commands, search the web, create documents, control the screen — all local,
+            all free, no tokens to buy.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe">Download for Windows (v0.1.1)</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">View on GitHub</a>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="feature-section">
       <div class="wrap">
-        <span class="eyebrow">Ferramentas</span>
-        <h2>Tudo que um agente de código precisa pra ser útil de verdade.</h2>
-        <p class="lede">
-          O modelo decide sozinho, turno a turno, qual ferramenta usar — com base no que você pediu.
-        </p>
-        <div class="mini-grid">
-          <div>
-            <h3>Ler, editar e criar arquivos</h3>
-            <p>Edições passam por uma sandbox com diff — você revisa e aceita antes de qualquer coisa tocar o arquivo real.</p>
-          </div>
-          <div>
-            <h3>Busca e edição estrutural</h3>
-            <p><code>ast_grep</code>/<code>ast_edit</code> casam pela forma da árvore sintática, não texto solto.</p>
-          </div>
-          <div>
-            <h3>Rodar comandos</h3>
-            <p>Testes, build, lint, git — inclusive dev servers em segundo plano, com aviso automático quando terminam.</p>
-          </div>
-          <div>
-            <h3>Pesquisar na web</h3>
-            <p>Busca multi-motor sem conta nem chave por padrão, com opção de Brave, Tavily ou SearXNG próprio.</p>
-          </div>
-          <div>
-            <h3>Gerar documentos</h3>
-            <p>Excel, Word, PDF e PowerPoint — com tabelas, imagens e formatação, escritos direto no disco.</p>
-          </div>
-          <div>
-            <h3>Controlar a tela</h3>
-            <p>Screenshot, clique, digitação e atalhos em outras aplicações, quando a tarefa pede automação.</p>
-          </div>
-          <div>
-            <h3>Servidores MCP</h3>
-            <p>Qualquer servidor Model Context Protocol configurado vira ferramenta disponível pro agente.</p>
-          </div>
-          <div>
-            <h3>Criar suas próprias ferramentas</h3>
-            <p>O agente escreve um script Python e registra como ferramenta reutilizável via <code>uv</code>.</p>
-          </div>
+        <div class="shot" style="background-image:url('assets/img/cerne-main.png')">
+          <span class="shot-label">Main screen — chat with the agent, composer, and session sidebar</span>
         </div>
       </div>
-    </section>
 
-    <div class="wrap">
-      <div class="shot-grid">
-        <div class="shot shot-sm" style="background-image:url('assets/img/cerne-skills-panel.png')"><span class="shot-label">Painel Agentes &amp; Skills</span></div>
-        <div class="shot shot-sm" style="background-image:url('assets/img/cerne-diff-viewer.png')"><span class="shot-label">Visualizador de diff do repositório</span></div>
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Overview</span>
+          <h2>The same coding agent power, in a real GUI.</h2>
+          <p class="lede">
+            Built with <strong>Tauri v2</strong> (Rust backend) and <strong>Vue 3</strong> on the frontend.
+            Cerne Code brings the agent experience to a native window — with session history, inline diff
+            review, file attachments, and everything a terminal can't give you for free.
+          </p>
+          <p class="lede">
+            It's <strong>local-first</strong> by design: the app runs entirely on your computer. You choose
+            whether the model runs locally too (llama.cpp, Ollama, LM Studio) or through an API provider.
+            Both paths get the same care.
+          </p>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Providers</span>
+          <h2>Four ways to connect a model.</h2>
+          <p class="lede">All speak the same protocol — switching is one click.</p>
+          <div class="mini-grid">
+            <div>
+              <h3>OpenRouter</h3>
+              <p>Dozens of API models (Claude, GPT, Gemini) through a single key.</p>
+            </div>
+            <div>
+              <h3>llama.cpp local</h3>
+              <p>Multiple configurable "forks" — the app starts and stops the server automatically.</p>
+            </div>
+            <div>
+              <h3>Ollama &amp; LM Studio</h3>
+              <p>The two most popular local runtimes, with automatic model detection.</p>
+            </div>
+            <div>
+              <h3>Custom provider</h3>
+              <p>Any OpenAI-compatible endpoint — Claude, Grok, Qwen, Kimi, and more.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Tools</span>
+          <h2>Everything a coding agent needs to be truly useful.</h2>
+          <p class="lede">The model decides, turn by turn, which tool to use — based on what you asked.</p>
+          <div class="mini-grid">
+            <div>
+              <h3>Read, edit &amp; create files</h3>
+              <p>Edits go through a sandbox with diff review — you approve before anything touches the real file.</p>
+            </div>
+            <div>
+              <h3>Structural code search</h3>
+              <p><code>ast_grep</code>/<code>ast_edit</code> match by AST shape, not loose text. 28 languages supported.</p>
+            </div>
+            <div>
+              <h3>Run commands</h3>
+              <p>Tests, build, lint, git — including background dev servers with automatic notification when done.</p>
+            </div>
+            <div>
+              <h3>Web search</h3>
+              <p>Multi-engine search (DuckDuckGo + Brave + Mojeek) with no account or key by default. Optionally Brave API, Tavily, or your own SearXNG.</p>
+            </div>
+            <div>
+              <h3>Create documents</h3>
+              <p>Excel, Word, PDF, PowerPoint — with tables, images, and formatting, written directly to disk.</p>
+            </div>
+            <div>
+              <h3>Screen control</h3>
+              <p>Screenshot, click, type, and keyboard shortcuts in other applications when the task needs automation.</p>
+            </div>
+            <div>
+              <h3>MCP servers</h3>
+              <p>Any Model Context Protocol server you configure becomes a tool available to the agent. Connection test before saving.</p>
+            </div>
+            <div>
+              <h3>Create your own tools</h3>
+              <p>The agent writes a Python script and registers it as a reusable tool via <code>uv</code> — available in every future session.</p>
+            </div>
+            <div>
+              <h3>Git integration</h3>
+              <p>Reads your project's git history, remembers preferences across sessions, and checks dependency vulnerabilities via OSV.</p>
+            </div>
+            <div>
+              <h3>Background execution</h3>
+              <p>Long-running commands (dev server, build) don't block the chat. The agent automatically reacts when they finish.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <div class="shot-grid">
+          <div class="shot shot-sm" style="background-image:url('assets/img/cerne-skills-panel.png')"><span class="shot-label">Agents &amp; Skills Panel</span></div>
+          <div class="shot shot-sm" style="background-image:url('assets/img/cerne-diff-viewer.png')"><span class="shot-label">Repository Diff Viewer</span></div>
+        </div>
       </div>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Orchestration</span>
+          <h2>An agent that knows how to delegate.</h2>
+          <p class="lede">Beyond direct answers, the main agent can distribute work across other agents.</p>
+          <div class="mini-grid">
+            <div>
+              <h3>Sub-agents</h3>
+              <p>Delegate a well-defined subtask to a disposable agent that returns only the final report.</p>
+            </div>
+            <div>
+              <h3>Adversarial verifier</h3>
+              <p>Before declaring success, a skeptical verifier confirms with real evidence — not just reading code.</p>
+            </div>
+            <div>
+              <h3>Dev → QA → Analyst pipeline</h3>
+              <p>Implements, confirms it works, confirms it meets requirements — looping back if anything fails.</p>
+            </div>
+            <div>
+              <h3>Parallel execution</h3>
+              <p>Independent subtasks run concurrently when using an API provider.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Audio &amp; Voice</span>
+          <h2>Speak instead of typing. Listen instead of reading.</h2>
+          <div class="mini-grid">
+            <div>
+              <h3>Audio input</h3>
+              <p>Speak directly through the microphone instead of typing. Audio is transcribed to text automatically.</p>
+            </div>
+            <div>
+              <h3>Text-to-speech</h3>
+              <p>Select any agent response or chat text and hear it spoken aloud. Or listen to the entire message with one click.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Customization</span>
+          <h2>Teach behavior without writing code.</h2>
+          <div class="mini-grid">
+            <div>
+              <h3>Skills</h3>
+              <p>An instruction file the agent loads when it decides it's relevant. Create your own, or import from a URL.</p>
+            </div>
+            <div>
+              <h3>Agents</h3>
+              <p>Specialized sessions with their own instructions, system prompt, and tool allowlist.</p>
+            </div>
+            <div>
+              <h3>Personas</h3>
+              <p>A "mode" that lasts the whole session — an English tutor, a senior reviewer — with optional tool allowlist.</p>
+            </div>
+            <div>
+              <h3>Execution control</h3>
+              <p>Manual (approve every action), Automatic (runs freely, cancelable), or YOLO (direct editing, no sandbox).</p>
+            </div>
+            <div>
+              <h3>Multi-language UI</h3>
+              <p>Complete interface in English, Portuguese, Spanish and Chinese.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Download</span>
+          <h2>Installer for Windows (x64) — v0.1.1.</h2>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe">Cerne.Code_0.1.1_x64-setup.exe</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/tag/v0.1.1" target="_blank" rel="noopener">View release notes</a>
+          </div>
+          <div class="callout">
+            <strong>Open source (MIT).</strong> Repository at
+            <a href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">github.com/RuvianFabrin/cerne-code</a>.
+          </div>
+        </div>
+      </section>
     </div>
 
-    <section class="feature-section">
-      <div class="wrap">
-        <span class="eyebrow">Orquestração</span>
-        <h2>Um agente que sabe delegar.</h2>
-        <p class="lede">Além de responder direto, o agente principal pode espalhar trabalho por outros agentes.</p>
-        <div class="mini-grid">
-          <div>
-            <h3>Sub-agentes</h3>
-            <p>Delega uma sub-tarefa bem definida pra um agente descartável, que devolve só o relatório final.</p>
-          </div>
-          <div>
-            <h3>Verificador adversarial</h3>
-            <p>Antes de declarar sucesso, um verificador cético confirma com evidência real — não só lendo código.</p>
-          </div>
-          <div>
-            <h3>Pipeline Dev → QA → Analista</h3>
-            <p>Implementa, confirma que funciona, confirma que atende o pedido — voltando pro início se algo não bater.</p>
-          </div>
-          <div>
-            <h3>Execução paralela</h3>
-            <p>Sub-tarefas independentes rodam ao mesmo tempo quando o provider é de API.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- ====== PORTUGUÊS ====== -->
+    <div class="lang-section" id="lang-pt-BR">
 
-    <section class="feature-section">
-      <div class="wrap">
-        <span class="eyebrow">Personalização</span>
-        <h2>Ensine comportamento sem escrever código.</h2>
-        <div class="mini-grid">
-          <div>
-            <h3>Skills</h3>
-            <p>Um arquivo de instruções que o agente carrega sozinho quando decide que é relevante. Dá pra criar as suas, ou importar de uma URL.</p>
-          </div>
-          <div>
-            <h3>Personas</h3>
-            <p>Um "modo" que vale a sessão inteira — um tutor de inglês, um revisor sênior — com allowlist opcional de ferramentas.</p>
-          </div>
-          <div>
-            <h3>Controle de execução</h3>
-            <p>Manual (aprova cada ação), Automático (roda direto, cancelável) ou YOLO (edição direta, sem sandbox).</p>
-          </div>
-          <div>
-            <h3>Multi-idioma</h3>
-            <p>Interface completa em português, inglês, espanhol e chinês.</p>
+      <section class="hero">
+        <div class="wrap">
+          <span class="eyebrow">Tauri · Rust · Vue 3 · MIT — Gratuito &amp; Código Aberto</span>
+          <h1>Um agente de código que vive no seu computador.</h1>
+          <p class="lede">
+            Cerne Code é um app desktop nativo que transforma qualquer modelo de linguagem num agente
+            de código de verdade. Editar arquivos, rodar comandos, pesquisar na web, criar documentos,
+            controlar a tela — tudo local, tudo grátis, sem contar tokens.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe">Baixar para Windows (v0.1.1)</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">Ver no GitHub</a>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="feature-section">
       <div class="wrap">
-        <span class="eyebrow">Baixar</span>
-        <h2>Instalador para Windows (x64) — v0.1.0.</h2>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.0/Cerne.Code_0.1.0_x64-setup.exe">Cerne.Code_0.1.0_x64-setup.exe</a>
-          <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/tag/v0.1.0" target="_blank" rel="noopener">Ver notas da versão</a>
-        </div>
-        <div class="callout">
-          <strong>Código aberto (MIT).</strong> Repositório em
-          <a href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">github.com/RuvianFabrin/cerne-code</a>.
+        <div class="shot" style="background-image:url('assets/img/cerne-main.png')">
+          <span class="shot-label">Tela principal — chat com o agente, composer e barra lateral de sessões</span>
         </div>
       </div>
-    </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Visão Geral</span>
+          <h2>O mesmo poder de um agente de código, numa janela de verdade.</h2>
+          <p class="lede">
+            Construído com <strong>Tauri v2</strong> (backend em Rust) e <strong>Vue 3</strong> no frontend.
+            Cerne Code traz a experiência de agente para uma janela nativa — com histórico de sessões,
+            revisão de diff inline, anexos de arquivos e tudo que um terminal não te dá de graça.
+          </p>
+          <p class="lede">
+            É <strong>local-first</strong> por design: o app roda inteiramente no seu computador. Você
+            escolhe se o modelo também roda localmente (llama.cpp, Ollama, LM Studio) ou via um provider
+            de API. Os dois caminhos recebem o mesmo cuidado.
+          </p>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Providers</span>
+          <h2>Quatro formas de conectar um modelo.</h2>
+          <p class="lede">Todos falam o mesmo protocolo — trocar é um clique.</p>
+          <div class="mini-grid">
+            <div>
+              <h3>OpenRouter</h3>
+              <p>Dezenas de modelos de API (Claude, GPT, Gemini) por uma única chave.</p>
+            </div>
+            <div>
+              <h3>llama.cpp local</h3>
+              <p>Múltiplos "forks" configuráveis — o app sobe e derruba o servidor sozinho.</p>
+            </div>
+            <div>
+              <h3>Ollama &amp; LM Studio</h3>
+              <p>Os dois runtimes locais mais usados, com detecção automática de modelos.</p>
+            </div>
+            <div>
+              <h3>Provider customizado</h3>
+              <p>Qualquer endpoint compatível com OpenAI — Claude, Grok, Qwen, Kimi e mais.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Ferramentas</span>
+          <h2>Tudo que um agente de código precisa pra ser útil de verdade.</h2>
+          <p class="lede">O modelo decide, turno a turno, qual ferramenta usar — com base no que você pediu.</p>
+          <div class="mini-grid">
+            <div>
+              <h3>Ler, editar e criar arquivos</h3>
+              <p>Edições passam por uma sandbox com diff — você revisa antes de qualquer coisa tocar o arquivo real.</p>
+            </div>
+            <div>
+              <h3>Busca estrutural de código</h3>
+              <p><code>ast_grep</code>/<code>ast_edit</code> casam pela forma da AST, não texto solto. 28 linguagens suportadas.</p>
+            </div>
+            <div>
+              <h3>Rodar comandos</h3>
+              <p>Testes, build, lint, git — inclusive servidores em segundo plano com aviso automático quando terminam.</p>
+            </div>
+            <div>
+              <h3>Pesquisar na web</h3>
+              <p>Busca multi-motor (DuckDuckGo + Brave + Mojeek) sem conta nem chave por padrão. Opcionalmente Brave API, Tavily ou SearXNG próprio.</p>
+            </div>
+            <div>
+              <h3>Criar documentos</h3>
+              <p>Excel, Word, PDF, PowerPoint — com tabelas, imagens e formatação, escritos direto no disco.</p>
+            </div>
+            <div>
+              <h3>Controlar a tela</h3>
+              <p>Screenshot, clique, digitação e atalhos em outras aplicações, quando a tarefa pede automação.</p>
+            </div>
+            <div>
+              <h3>Servidores MCP</h3>
+              <p>Qualquer servidor MCP configurado vira ferramenta disponível pro agente. Teste de conexão antes de salvar.</p>
+            </div>
+            <div>
+              <h3>Criar suas próprias ferramentas</h3>
+              <p>O agente escreve um script Python e registra como ferramenta reutilizável via <code>uv</code> — disponível em todas as sessões futuras.</p>
+            </div>
+            <div>
+              <h3>Integração Git</h3>
+              <p>Lê o histórico git do projeto, lembra preferências entre sessões e verifica vulnerabilidades nas dependências via OSV.</p>
+            </div>
+            <div>
+              <h3>Execução em segundo plano</h3>
+              <p>Comandos longos (dev server, build) rodam sem travar o chat. O agente reage automaticamente quando terminam.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <div class="shot-grid">
+          <div class="shot shot-sm" style="background-image:url('assets/img/cerne-skills-panel.png')"><span class="shot-label">Painel Agentes &amp; Skills</span></div>
+          <div class="shot shot-sm" style="background-image:url('assets/img/cerne-diff-viewer.png')"><span class="shot-label">Visualizador de Diff do Repositório</span></div>
+        </div>
+      </div>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Orquestração</span>
+          <h2>Um agente que sabe delegar.</h2>
+          <p class="lede">Além de responder direto, o agente principal pode espalhar trabalho por outros agentes.</p>
+          <div class="mini-grid">
+            <div>
+              <h3>Sub-agentes</h3>
+              <p>Delega uma sub-tarefa pra um agente descartável que devolve só o relatório final.</p>
+            </div>
+            <div>
+              <h3>Verificador adversarial</h3>
+              <p>Antes de declarar sucesso, um verificador cético confirma com evidência real — não só lendo código.</p>
+            </div>
+            <div>
+              <h3>Pipeline Dev → QA → Analista</h3>
+              <p>Implementa, confirma que funciona, confirma que atende o pedido — voltando pro início se algo não bater.</p>
+            </div>
+            <div>
+              <h3>Execução paralela</h3>
+              <p>Sub-tarefas independentes rodam ao mesmo tempo quando o provider é de API.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Áudio &amp; Voz</span>
+          <h2>Fale em vez de digitar. Ouça em vez de ler.</h2>
+          <div class="mini-grid">
+            <div>
+              <h3>Áudio no composer</h3>
+              <p>Fale diretamente pelo microfone em vez de digitar. O áudio é transcrito automaticamente pra texto.</p>
+            </div>
+            <div>
+              <h3>Ouvir texto (TTS)</h3>
+              <p>Selecione qualquer resposta do agente ou texto do chat e ouça em voz alta. Ou a mensagem inteira com um clique.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Personalização</span>
+          <h2>Ensine comportamento sem escrever código.</h2>
+          <div class="mini-grid">
+            <div>
+              <h3>Skills</h3>
+              <p>Um arquivo de instruções que o agente carrega sozinho quando decide que é relevante. Crie as suas ou importe de uma URL.</p>
+            </div>
+            <div>
+              <h3>Agents</h3>
+              <p>Sessões especializadas com instruções próprias, system prompt e lista de ferramentas permitidas.</p>
+            </div>
+            <div>
+              <h3>Personas</h3>
+              <p>Um "modo" que vale a sessão inteira — um tutor de inglês, um revisor sênior — com allowlist opcional de ferramentas.</p>
+            </div>
+            <div>
+              <h3>Controle de execução</h3>
+              <p>Manual (aprova cada ação), Automático (roda direto, cancelável) ou YOLO (edição direta, sem sandbox).</p>
+            </div>
+            <div>
+              <h3>Interface multi-idioma</h3>
+              <p>Interface completa em português, inglês, espanhol e chinês.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Baixar</span>
+          <h2>Instalador para Windows (x64) — v0.1.1.</h2>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe">Cerne.Code_0.1.1_x64-setup.exe</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/tag/v0.1.1" target="_blank" rel="noopener">Ver notas da versão</a>
+          </div>
+          <div class="callout">
+            <strong>Código aberto (MIT).</strong> Repositório em
+            <a href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">github.com/RuvianFabrin/cerne-code</a>.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ====== ESPAÑOL ====== -->
+    <div class="lang-section" id="lang-es">
+
+      <section class="hero">
+        <div class="wrap">
+          <span class="eyebrow">Tauri · Rust · Vue 3 · MIT — Gratuito &amp; Código Abierto</span>
+          <h1>Un agente de código que vive en tu computadora.</h1>
+          <p class="lede">
+            Cerne Code es una app de escritorio nativa que convierte cualquier modelo de lenguaje en un
+            agente de código real. Editar archivos, ejecutar comandos, buscar en la web, crear documentos,
+            controlar la pantalla — todo local, todo gratis, sin contar tokens.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe">Descargar para Windows (v0.1.1)</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">Ver en GitHub</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <div class="shot" style="background-image:url('assets/img/cerne-main.png')">
+          <span class="shot-label">Pantalla principal — chat con el agente, compositor y barra lateral de sesiones</span>
+        </div>
+      </div>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Visión General</span>
+          <h2>El mismo poder de un agente de código, en una ventana real.</h2>
+          <p class="lede">
+            Construido con <strong>Tauri v2</strong> (backend en Rust) y <strong>Vue 3</strong> en el frontend.
+            Cerne Code trae la experiencia de agente a una ventana nativa — con historial de sesiones,
+            revisión de diff inline, anexos de archivos y todo lo que un terminal no te da gratis.
+          </p>
+          <p class="lede">
+            Es <strong>local-first</strong> por diseño: la app corre completamente en tu computadora. Tú
+            eliges si el modelo también corre localmente (llama.cpp, Ollama, LM Studio) o mediante un
+            provider de API. Ambos caminos reciben el mismo cuidado.
+          </p>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Providers</span>
+          <h2>Cuatro formas de conectar un modelo.</h2>
+          <p class="lede">Todos hablan el mismo protocolo — cambiar es un clic.</p>
+          <div class="mini-grid">
+            <div>
+              <h3>OpenRouter</h3>
+              <p>Docenas de modelos de API (Claude, GPT, Gemini) con una sola clave.</p>
+            </div>
+            <div>
+              <h3>llama.cpp local</h3>
+              <p>Múltiples "forks" configurables — la app inicia y detiene el servidor automáticamente.</p>
+            </div>
+            <div>
+              <h3>Ollama &amp; LM Studio</h3>
+              <p>Los dos runtimes locales más usados, con detección automática de modelos.</p>
+            </div>
+            <div>
+              <h3>Provider personalizado</h3>
+              <p>Cualquier endpoint compatible con OpenAI — Claude, Grok, Qwen, Kimi y más.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Herramientas</span>
+          <h2>Todo lo que un agente de código necesita para ser realmente útil.</h2>
+          <p class="lede">El modelo decide, turno a turno, qué herramienta usar — según lo que pediste.</p>
+          <div class="mini-grid">
+            <div>
+              <h3>Leer, editar y crear archivos</h3>
+              <p>Las ediciones pasan por un sandbox con diff — revisas antes de tocar el archivo real.</p>
+            </div>
+            <div>
+              <h3>Búsqueda estructural de código</h3>
+              <p><code>ast_grep</code>/<code>ast_edit</code> casan por la forma del AST, no texto suelto. 28 lenguajes soportados.</p>
+            </div>
+            <div>
+              <h3>Ejecutar comandos</h3>
+              <p>Tests, build, lint, git — incluyendo servidores en segundo plano con aviso automático al terminar.</p>
+            </div>
+            <div>
+              <h3>Búsqueda web</h3>
+              <p>Búsqueda multi-motor (DuckDuckGo + Brave + Mojeek) sin cuenta ni clave por defecto. Opcionalmente Brave API, Tavily o SearXNG propio.</p>
+            </div>
+            <div>
+              <h3>Crear documentos</h3>
+              <p>Excel, Word, PDF, PowerPoint — con tablas, imágenes y formato, escritos directo al disco.</p>
+            </div>
+            <div>
+              <h3>Control de pantalla</h3>
+              <p>Captura de pantalla, clic, escritura y atajos en otras aplicaciones cuando la tarea requiere automatización.</p>
+            </div>
+            <div>
+              <h3>Servidores MCP</h3>
+              <p>Cualquier servidor MCP configurado se vuelve herramienta disponible para el agente. Prueba de conexión antes de guardar.</p>
+            </div>
+            <div>
+              <h3>Crea tus propias herramientas</h3>
+              <p>El agente escribe un script Python y lo registra como herramienta reutilizable vía <code>uv</code> — disponible en todas las sesiones futuras.</p>
+            </div>
+            <div>
+              <h3>Integración Git</h3>
+              <p>Lee el historial git del proyecto, recuerda preferencias entre sesiones y verifica vulnerabilidades en dependencias vía OSV.</p>
+            </div>
+            <div>
+              <h3>Ejecución en segundo plano</h3>
+              <p>Comandos largos (dev server, build) corren sin bloquear el chat. El agente reacciona automáticamente cuando terminan.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <div class="shot-grid">
+          <div class="shot shot-sm" style="background-image:url('assets/img/cerne-skills-panel.png')"><span class="shot-label">Panel de Agentes &amp; Skills</span></div>
+          <div class="shot shot-sm" style="background-image:url('assets/img/cerne-diff-viewer.png')"><span class="shot-label">Visor de Diff del Repositorio</span></div>
+        </div>
+      </div>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Orquestación</span>
+          <h2>Un agente que sabe delegar.</h2>
+          <p class="lede">Además de responder directo, el agente principal puede distribuir trabajo entre otros agentes.</p>
+          <div class="mini-grid">
+            <div>
+              <h3>Sub-agentes</h3>
+              <p>Delega una subtarea a un agente descartable que devuelve solo el informe final.</p>
+            </div>
+            <div>
+              <h3>Verificador adversarial</h3>
+              <p>Antes de declarar éxito, un verificador escéptico confirma con evidencia real — no solo leyendo código.</p>
+            </div>
+            <div>
+              <h3>Pipeline Dev → QA → Analista</h3>
+              <p>Implementa, confirma que funciona, confirma que cumple el pedido — volviendo al inicio si algo no coincide.</p>
+            </div>
+            <div>
+              <h3>Ejecución paralela</h3>
+              <p>Subtareas independientes corren simultáneamente cuando el provider es de API.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Audio &amp; Voz</span>
+          <h2>Habla en vez de escribir. Escucha en vez de leer.</h2>
+          <div class="mini-grid">
+            <div>
+              <h3>Audio en el compositor</h3>
+              <p>Habla directamente por el micrófono en vez de escribir. El audio se transcribe automáticamente a texto.</p>
+            </div>
+            <div>
+              <h3>Escuchar texto (TTS)</h3>
+              <p>Selecciona cualquier respuesta del agente o texto del chat y escúchalo en voz alta. O el mensaje completo con un clic.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Personalización</span>
+          <h2>Enseña comportamiento sin escribir código.</h2>
+          <div class="mini-grid">
+            <div>
+              <h3>Skills</h3>
+              <p>Un archivo de instrucciones que el agente carga solo cuando decide que es relevante. Crea las tuyas o importa desde una URL.</p>
+            </div>
+            <div>
+              <h3>Agents</h3>
+              <p>Sesiones especializadas con instrucciones propias, system prompt y lista de herramientas permitidas.</p>
+            </div>
+            <div>
+              <h3>Personas</h3>
+              <p>Un "modo" que dura toda la sesión — un tutor de inglés, un revisor senior — con allowlist opcional de herramientas.</p>
+            </div>
+            <div>
+              <h3>Control de ejecución</h3>
+              <p>Manual (aprueba cada acción), Automático (corre libre, cancelable) o YOLO (edición directa, sin sandbox).</p>
+            </div>
+            <div>
+              <h3>Interfaz multi-idioma</h3>
+              <p>Interfaz completa en español, portugués, inglés y chino.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Descargar</span>
+          <h2>Instalador para Windows (x64) — v0.1.1.</h2>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe">Cerne.Code_0.1.1_x64-setup.exe</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/tag/v0.1.1" target="_blank" rel="noopener">Ver notas de la versión</a>
+          </div>
+          <div class="callout">
+            <strong>Código abierto (MIT).</strong> Repositorio en
+            <a href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">github.com/RuvianFabrin/cerne-code</a>.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ====== 中文 ====== -->
+    <div class="lang-section" id="lang-zh">
+
+      <section class="hero">
+        <div class="wrap">
+          <span class="eyebrow">Tauri · Rust · Vue 3 · MIT — 免费 &amp; 开源</span>
+          <h1>一个生活在您电脑上的代码助手。</h1>
+          <p class="lede">
+            Cerne Code 是一款原生桌面应用，能将任何语言模型转变为真正的代码助手。
+            编辑文件、运行命令、搜索网页、创建文档、控制屏幕 — 全部本地运行，完全免费，不计 token。
+          </p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe">下载 Windows 版 (v0.1.1)</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">在 GitHub 上查看</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <div class="shot" style="background-image:url('assets/img/cerne-main.png')">
+          <span class="shot-label">主界面 — 与助手聊天、编辑器、会话侧边栏</span>
+        </div>
+      </div>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">概述</span>
+          <h2>同样的代码助手能力，在一个真正的图形界面中。</h2>
+          <p class="lede">
+            使用 <strong>Tauri v2</strong>（Rust 后端）和 <strong>Vue 3</strong> 前端构建。
+            Cerne Code 将代码助手的体验带入原生窗口 — 具备会话历史、内联差异审查、
+            文件附件以及终端无法免费提供的一切。
+          </p>
+          <p class="lede">
+            它天生是 <strong>本地优先</strong> 的：应用完全在您的计算机上运行。您可以选择
+            模型是否也在本地运行（llama.cpp、Ollama、LM Studio），或者通过 API 提供商。
+            两种方式都得到同样的精心照顾。
+          </p>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">提供商</span>
+          <h2>四种连接模型的方式。</h2>
+          <p class="lede">都使用相同的协议 — 一键切换。</p>
+          <div class="mini-grid">
+            <div>
+              <h3>OpenRouter</h3>
+              <p>通过单一密钥访问数十种 API 模型（Claude、GPT、Gemini）。</p>
+            </div>
+            <div>
+              <h3>本地 llama.cpp</h3>
+              <p>多个可配置的 "分支" — 应用自动启动和停止服务器。</p>
+            </div>
+            <div>
+              <h3>Ollama &amp; LM Studio</h3>
+              <p>最流行的两种本地运行时，具有自动模型检测功能。</p>
+            </div>
+            <div>
+              <h3>自定义提供商</h3>
+              <p>任何兼容 OpenAI 的端点 — Claude、Grok、Qwen、Kimi 等。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">工具</span>
+          <h2>代码助手真正有用所需的一切。</h2>
+          <p class="lede">模型根据您的请求，逐轮决定使用哪个工具。</p>
+          <div class="mini-grid">
+            <div>
+              <h3>读取、编辑和创建文件</h3>
+              <p>编辑通过沙箱和差异审查 — 在触及真实文件之前，您可以批准每一项更改。</p>
+            </div>
+            <div>
+              <h3>结构化代码搜索</h3>
+              <p><code>ast_grep</code>/<code>ast_edit</code> 按 AST 形状匹配，而非松散文本。支持 28 种语言。</p>
+            </div>
+            <div>
+              <h3>运行命令</h3>
+              <p>测试、构建、代码检查、Git — 包括后台开发服务器，完成时自动通知。</p>
+            </div>
+            <div>
+              <h3>网页搜索</h3>
+              <p>多引擎搜索（DuckDuckGo + Brave + Mojeek），默认无需账户或密钥。可选 Brave API、Tavily 或自建 SearXNG。</p>
+            </div>
+            <div>
+              <h3>创建文档</h3>
+              <p>Excel、Word、PDF、PowerPoint — 带表格、图片和格式，直接写入磁盘。</p>
+            </div>
+            <div>
+              <h3>屏幕控制</h3>
+              <p>截图、点击、输入和快捷键操作其他应用程序，当任务需要自动化时。</p>
+            </div>
+            <div>
+              <h3>MCP 服务器</h3>
+              <p>任何配置的 MCP 服务器都会成为助手的可用工具。保存前可测试连接。</p>
+            </div>
+            <div>
+              <h3>创建自己的工具</h3>
+              <p>助手编写 Python 脚本并通过 <code>uv</code> 注册为可复用工具 — 在未来的所有会话中可用。</p>
+            </div>
+            <div>
+              <h3>Git 集成</h3>
+              <p>读取项目的 Git 历史、跨会话记住偏好、并通过 OSV 检查依赖项漏洞。</p>
+            </div>
+            <div>
+              <h3>后台执行</h3>
+              <p>长时间运行的命令（开发服务器、构建）不会阻塞对话。助手在完成后自动响应。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <div class="shot-grid">
+          <div class="shot shot-sm" style="background-image:url('assets/img/cerne-skills-panel.png')"><span class="shot-label">Agents &amp; Skills 面板</span></div>
+          <div class="shot shot-sm" style="background-image:url('assets/img/cerne-diff-viewer.png')"><span class="shot-label">仓库差异查看器</span></div>
+        </div>
+      </div>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">编排</span>
+          <h2>一个知道如何委派的助手。</h2>
+          <p class="lede">除了直接回答，主助手还可以将工作分配给其他助手。</p>
+          <div class="mini-grid">
+            <div>
+              <h3>子代理</h3>
+              <p>将明确定义的子任务委派给一个可丢弃的代理，它只返回最终报告。</p>
+            </div>
+            <div>
+              <h3>对抗性验证器</h3>
+              <p>在宣布成功之前，一个持怀疑态度的验证器会用真实证据确认 — 不仅仅是阅读代码。</p>
+            </div>
+            <div>
+              <h3>Dev → QA → 分析师流水线</h3>
+              <p>实现、确认功能正常、确认满足需求 — 如果任何环节失败则循环回去。</p>
+            </div>
+            <div>
+              <h3>并行执行</h3>
+              <p>使用 API 提供商时，独立的子任务同时运行。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">音频与语音</span>
+          <h2>用说的代替打字。用听的代替阅读。</h2>
+          <div class="mini-grid">
+            <div>
+              <h3>语音输入</h3>
+              <p>直接对着麦克风说话，不用打字。语音会自动转录为文字。</p>
+            </div>
+            <div>
+              <h3>朗读文本 (TTS)</h3>
+              <p>选中助手的任何回复或聊天文本，即可听语音朗读。也可以一键收听整条消息。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">个性化</span>
+          <h2>无需编写代码即可教导行为。</h2>
+          <div class="mini-grid">
+            <div>
+              <h3>Skills</h3>
+              <p>助手在决定相关时自行加载的指令文件。创建你自己的，或从 URL 导入。</p>
+            </div>
+            <div>
+              <h3>Agents</h3>
+              <p>带有专属指令、系统提示和工具允许列表的专门会话。</p>
+            </div>
+            <div>
+              <h3>人设 (Personas)</h3>
+              <p>持续整个会话的"模式" — 英语教师、资深审查员 — 带有可选的工具允许列表。</p>
+            </div>
+            <div>
+              <h3>执行控制</h3>
+              <p>手动（批准每个操作）、自动（自由运行，可取消）或 YOLO（直接编辑，无沙箱）。</p>
+            </div>
+            <div>
+              <h3>多语言界面</h3>
+              <p>完整的界面支持中文、英语、葡萄牙语和西班牙语。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">下载</span>
+          <h2>Windows (x64) 安装程序 — v0.1.1。</h2>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe">Cerne.Code_0.1.1_x64-setup.exe</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/tag/v0.1.1" target="_blank" rel="noopener">查看版本说明</a>
+          </div>
+          <div class="callout">
+            <strong>开源 (MIT)。</strong> 仓库地址：
+            <a href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">github.com/RuvianFabrin/cerne-code</a>。
+          </div>
+        </div>
+      </section>
+    </div>
+
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
       <span>© 2026 Ruvian Fabrin</span>
-      <span><a href="index.html">← voltar</a></span>
+      <span><a href="index.html">← back</a></span>
     </div>
   </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+        document.getElementById('lang-' + lang).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>

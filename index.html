@@ -1,18 +1,52 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ruvian Fabrin</title>
-  <meta name="description" content="Projetos e anotações de Ruvian Fabrin — desenvolvimento de ferramentas com IA, agentes de código e automação." />
+  <title>Ruvian Fabrin — AI tools, coding agents, local-first software</title>
+  <meta name="description" content="Ruvian Fabrin — building AI tools, coding agents, and local-first developer software. Open source projects with Tauri, Rust, and Vue." />
   <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .lang-bar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s var(--ease);
+    }
+    .lang-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .lang-btn.active {
+      background: var(--text);
+      color: #fff;
+      border-color: var(--text);
+    }
+    .lang-section {
+      display: none;
+    }
+    .lang-section.active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="index.html">Ruvian Fabrin</a>
       <nav class="site-nav">
-        <a href="index.html">Início</a>
+        <a href="index.html">Home</a>
         <a href="cerne-code.html">Cerne Code</a>
         <a href="https://github.com/RuvianFabrin" target="_blank" rel="noopener">GitHub</a>
       </nav>
@@ -20,56 +54,237 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="wrap">
-        <span class="eyebrow">Projetos &amp; anotações</span>
-        <h1>Ferramentas de IA construídas do zero.</h1>
-        <p class="lede">
-          Este espaço reúne os projetos em que venho trabalhando — a maior parte girando em torno de
-          agentes de IA, automação de desenvolvimento e ferramentas locais que rodam no computador do
-          usuário, sem depender de nuvem pra tudo.
-        </p>
-      </div>
-    </section>
-
+    <!-- Language bar -->
     <div class="wrap">
-      <h2>Projeto em destaque</h2>
-
-      <a class="project-card" href="cerne-code.html">
-        <span class="eyebrow">Desktop · Tauri + Rust + Vue</span>
-        <h2>Cerne Code</h2>
-        <p>
-          Um agente de código local com interface gráfica — pense num "Claude Code" em formato de
-          app desktop. Lê, edita e cria arquivos de verdade, roda comandos, gera documentos
-          (Excel/Word/PDF/PowerPoint), pesquisa na web, controla a tela quando precisa, e se conecta
-          a modelos locais (llama.cpp, Ollama, LM Studio) ou de API (OpenRouter e qualquer provider
-          compatível com OpenAI).
-        </p>
-        <div class="tag-row">
-          <span class="tag">Rust</span>
-          <span class="tag">Tauri v2</span>
-          <span class="tag">Vue 3</span>
-          <span class="tag">Agentes de IA</span>
-          <span class="tag">MIT</span>
-        </div>
-      </a>
-
-      <div class="shot" style="background-image:url('assets/img/cerne-hero.png')">
-        <span class="shot-label">Cerne Code — tela principal do chat com o agente</span>
+      <div class="lang-bar">
+        <button class="lang-btn active" data-lang="en">🇺🇸 English</button>
+        <button class="lang-btn" data-lang="pt-BR">🇧🇷 Português</button>
+        <button class="lang-btn" data-lang="es">🇪🇸 Español</button>
+        <button class="lang-btn" data-lang="zh">🇨🇳 中文</button>
       </div>
     </div>
 
-    <section class="feature-section">
+    <!-- ====== ENGLISH ====== -->
+    <div class="lang-section active" id="lang-en">
+
+      <section class="hero">
+        <div class="wrap">
+          <span class="eyebrow">Projects &amp; notes</span>
+          <h1>AI tools built from scratch.</h1>
+          <p class="lede">
+            This is where I share the projects I've been working on — mostly around AI agents,
+            developer automation, and local-first tools that run on your machine instead of depending
+            on the cloud for everything.
+          </p>
+        </div>
+      </section>
+
       <div class="wrap">
-        <span class="eyebrow">Sobre</span>
-        <h2>O que tem por aqui.</h2>
-        <p class="lede">
-          Escrevo sobre o processo de construir essas ferramentas — decisões técnicas, problemas
-          reais encontrados testando ao vivo, e o raciocínio por trás delas. Mais projetos e posts
-          devem aparecer aqui com o tempo.
-        </p>
+        <h2>Featured project</h2>
+
+        <a class="project-card" href="cerne-code.html">
+          <span class="eyebrow">Desktop · Tauri + Rust + Vue · Open Source (MIT)</span>
+          <h2>Cerne Code</h2>
+          <p>
+            A free, local coding agent with a native GUI — think "Claude Code" as a desktop app.
+            Reads, edits and creates real files, runs commands, generates documents
+            (Excel/Word/PDF/PowerPoint), searches the web, controls the screen when needed,
+            and connects to local models (llama.cpp, Ollama, LM Studio) or API providers
+            (OpenRouter, Claude, Grok, Qwen, and any OpenAI-compatible endpoint).
+            <strong>100% local, free, no tokens to buy.</strong>
+          </p>
+          <div class="tag-row">
+            <span class="tag">Rust</span>
+            <span class="tag">Tauri v2</span>
+            <span class="tag">Vue 3</span>
+            <span class="tag">AI Agent</span>
+            <span class="tag">MIT</span>
+          </div>
+        </a>
+
+        <div class="shot" style="background-image:url('assets/img/cerne-hero.png')">
+          <span class="shot-label">Cerne Code — main chat screen with the agent</span>
+        </div>
       </div>
-    </section>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">About</span>
+          <h2>What you'll find here.</h2>
+          <p class="lede">
+            I write about the process of building these tools — technical decisions, real-world
+            problems found while testing live, and the reasoning behind them. More projects and
+            posts will appear here over time.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- ====== PORTUGUÊS ====== -->
+    <div class="lang-section" id="lang-pt-BR">
+
+      <section class="hero">
+        <div class="wrap">
+          <span class="eyebrow">Projetos &amp; anotações</span>
+          <h1>Ferramentas de IA construídas do zero.</h1>
+          <p class="lede">
+            Este espaço reúne os projetos em que venho trabalhando — a maior parte girando em torno
+            de agentes de IA, automação de desenvolvimento e ferramentas locais que rodam no seu
+            computador, sem depender de nuvem pra tudo.
+          </p>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <h2>Projeto em destaque</h2>
+
+        <a class="project-card" href="cerne-code.html">
+          <span class="eyebrow">Desktop · Tauri + Rust + Vue · Código Aberto (MIT)</span>
+          <h2>Cerne Code</h2>
+          <p>
+            Um agente de código local gratuito com interface gráfica nativa — pense num "Claude Code"
+            em formato de app desktop. Lê, edita e cria arquivos de verdade, roda comandos, gera
+            documentos (Excel/Word/PDF/PowerPoint), pesquisa na web, controla a tela quando precisa,
+            e se conecta a modelos locais (llama.cpp, Ollama, LM Studio) ou providers de API
+            (OpenRouter, Claude, Grok, Qwen e qualquer endpoint compatível com OpenAI).
+            <strong>100% local, grátis, sem contar tokens.</strong>
+          </p>
+          <div class="tag-row">
+            <span class="tag">Rust</span>
+            <span class="tag">Tauri v2</span>
+            <span class="tag">Vue 3</span>
+            <span class="tag">Agente de IA</span>
+            <span class="tag">MIT</span>
+          </div>
+        </a>
+
+        <div class="shot" style="background-image:url('assets/img/cerne-hero.png')">
+          <span class="shot-label">Cerne Code — tela principal do chat com o agente</span>
+        </div>
+      </div>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Sobre</span>
+          <h2>O que tem por aqui.</h2>
+          <p class="lede">
+            Escrevo sobre o processo de construir essas ferramentas — decisões técnicas, problemas
+            reais encontrados testando ao vivo, e o raciocínio por trás delas. Mais projetos e posts
+            devem aparecer aqui com o tempo.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- ====== ESPAÑOL ====== -->
+    <div class="lang-section" id="lang-es">
+
+      <section class="hero">
+        <div class="wrap">
+          <span class="eyebrow">Proyectos &amp; anotaciones</span>
+          <h1>Herramientas de IA construidas desde cero.</h1>
+          <p class="lede">
+            Este espacio reúne los proyectos en los que vengo trabajando — la mayoría girando en torno
+            a agentes de IA, automatización de desarrollo y herramientas locales que se ejecutan en tu
+            computadora, sin depender de la nube para todo.
+          </p>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <h2>Proyecto destacado</h2>
+
+        <a class="project-card" href="cerne-code.html">
+          <span class="eyebrow">Desktop · Tauri + Rust + Vue · Código Abierto (MIT)</span>
+          <h2>Cerne Code</h2>
+          <p>
+            Un agente de código local gratuito con interfaz gráfica nativa — piensa en un "Claude Code"
+            como app de escritorio. Lee, edita y crea archivos reales, ejecuta comandos, genera
+            documentos (Excel/Word/PDF/PowerPoint), busca en la web, controla la pantalla cuando es
+            necesario, y se conecta a modelos locales (llama.cpp, Ollama, LM Studio) o providers de
+            API (OpenRouter, Claude, Grok, Qwen y cualquier endpoint compatible con OpenAI).
+            <strong>100% local, gratis, sin contar tokens.</strong>
+          </p>
+          <div class="tag-row">
+            <span class="tag">Rust</span>
+            <span class="tag">Tauri v2</span>
+            <span class="tag">Vue 3</span>
+            <span class="tag">Agente de IA</span>
+            <span class="tag">MIT</span>
+          </div>
+        </a>
+
+        <div class="shot" style="background-image:url('assets/img/cerne-hero.png')">
+          <span class="shot-label">Cerne Code — pantalla principal del chat con el agente</span>
+        </div>
+      </div>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">Acerca de</span>
+          <h2>Lo que hay aquí.</h2>
+          <p class="lede">
+            Escribo sobre el proceso de construir estas herramientas — decisiones técnicas, problemas
+            reales encontrados probando en vivo, y el razonamiento detrás de ellas. Más proyectos y
+            publicaciones aparecerán aquí con el tiempo.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- ====== 中文 ====== -->
+    <div class="lang-section" id="lang-zh">
+
+      <section class="hero">
+        <div class="wrap">
+          <span class="eyebrow">项目与笔记</span>
+          <h1>从零构建的 AI 工具。</h1>
+          <p class="lede">
+            这里汇集了我一直在做的项目 — 主要围绕 AI 智能体、开发自动化和本地优先工具，
+            这些工具在你的计算机上运行，而不是事事依赖云端。
+          </p>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <h2>精选项目</h2>
+
+        <a class="project-card" href="cerne-code.html">
+          <span class="eyebrow">桌面应用 · Tauri + Rust + Vue · 开源 (MIT)</span>
+          <h2>Cerne Code</h2>
+          <p>
+            一款免费的本地代码智能体，配有原生图形界面 — 可以把它想象成桌面版的 "Claude Code"。
+            它能读取、编辑和创建真实文件、运行命令、生成文档（Excel/Word/PDF/PowerPoint）、
+            搜索网页、在需要时控制屏幕，并能连接本地模型（llama.cpp、Ollama、LM Studio）
+            或 API 提供商（OpenRouter、Claude、Grok、Qwen 以及任何兼容 OpenAI 的端点）。
+            <strong>100% 本地运行，完全免费，不计 token。</strong>
+          </p>
+          <div class="tag-row">
+            <span class="tag">Rust</span>
+            <span class="tag">Tauri v2</span>
+            <span class="tag">Vue 3</span>
+            <span class="tag">AI 智能体</span>
+            <span class="tag">MIT</span>
+          </div>
+        </a>
+
+        <div class="shot" style="background-image:url('assets/img/cerne-hero.png')">
+          <span class="shot-label">Cerne Code — 与智能体聊天的主界面</span>
+        </div>
+      </div>
+
+      <section class="feature-section">
+        <div class="wrap">
+          <span class="eyebrow">关于</span>
+          <h2>这里有什么。</h2>
+          <p class="lede">
+            我写下了构建这些工具的过程 — 技术决策、在实机测试中遇到的真实问题，
+            以及它们背后的思考。随着时间的推移，更多的项目和文章将在这里出现。
+          </p>
+        </div>
+      </section>
+    </div>
+
   </main>
 
   <footer class="site-footer">
@@ -78,5 +293,18 @@
       <span><a href="https://github.com/RuvianFabrin" target="_blank" rel="noopener">github.com/RuvianFabrin</a></span>
     </div>
   </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+        document.getElementById('lang-' + lang).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
