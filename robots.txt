@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ruvianfabrin.github.io/sitemap.txt

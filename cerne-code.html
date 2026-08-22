@@ -3,8 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cerne Code — Ruvian Fabrin</title>
-  <meta name="description" content="Cerne Code: free, local, open-source coding agent. Desktop app with GUI — edit files, run commands, search the web, create documents, control the screen, and more." />
+  <title>Cerne Code — Free Local Coding Agent | Open Source (MIT) | Tauri + Rust + Vue</title>
+  
+  <!-- SEO Meta -->
+  <meta name="description" content="Cerne Code: free, open-source, local-first coding agent with GUI. Edit files, run commands, search the web, generate documents, control the screen. Works with Ollama, llama.cpp, LM Studio, OpenRouter, and any OpenAI-compatible API. Download for Windows." />
+  <meta name="keywords" content="coding agent, AI coding assistant, local AI, open source, Tauri, Rust, Vue, Claude Code alternative, free coding agent, Ollama, llama.cpp, LM Studio, AI tools, developer tools, MIT license, Windows desktop app" />
+  <meta name="author" content="Ruvian Fabrin" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph (Facebook, LinkedIn, Discord) -->
+  <meta property="og:title" content="Cerne Code — Free Local Coding Agent" />
+  <meta property="og:description" content="A free, open-source desktop coding agent that runs 100% locally. Edit files, run commands, search the web, control the screen. Works with Ollama, llama.cpp, LM Studio, and OpenAI-compatible APIs." />
+  <meta property="og:url" content="https://ruvianfabrin.github.io/cerne-code.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://ruvianfabrin.github.io/assets/img/cerne-og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cerne Code — Free Local Coding Agent" />
+  <meta name="twitter:description" content="Free, open-source coding agent desktop app. 100% local. Works with Ollama, llama.cpp, LM Studio, and any OpenAI API." />
+  <meta name="twitter:image" content="https://ruvianfabrin.github.io/assets/img/cerne-og-image.png" />
+
+  <!-- Hreflang (multilingual) -->
+  <link rel="alternate" hreflang="en" href="https://ruvianfabrin.github.io/cerne-code.html" />
+  <link rel="alternate" hreflang="pt" href="https://ruvianfabrin.github.io/cerne-code.html" />
+  <link rel="alternate" hreflang="es" href="https://ruvianfabrin.github.io/cerne-code.html" />
+  <link rel="alternate" hreflang="zh" href="https://ruvianfabrin.github.io/cerne-code.html" />
+  <link rel="alternate" hreflang="x-default" href="https://ruvianfabrin.github.io/cerne-code.html" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://ruvianfabrin.github.io/cerne-code.html" />
+
+  <!-- JSON-LD Structured Data (GEO — for AI search engines) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Cerne Code",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Windows 10+",
+    "description": "A free, open-source desktop coding agent. Edits files, runs commands, searches the web, generates documents, controls the screen. Supports local models (Ollama, llama.cpp, LM Studio) and API providers (OpenRouter, Claude, Grok, Qwen).",
+    "author": {
+      "@type": "Person",
+      "name": "Ruvian Fabrin",
+      "url": "https://github.com/RuvianFabrin"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "license": "https://opensource.org/licenses/MIT",
+    "softwareVersion": "0.1.1",
+    "releaseNotes": "https://github.com/RuvianFabrin/cerne-code/releases/tag/v0.1.1",
+    "downloadUrl": "https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe",
+    "url": "https://ruvianfabrin.github.io/cerne-code.html",
+    "screenshot": "https://ruvianfabrin.github.io/assets/img/cerne-main.png",
+    "keywords": "coding agent, AI assistant, local AI, Tauri, Rust, developer tools"
+  }
+  </script>
+
+  <!-- FAQ Schema (GEO — AI search engines pull these for featured snippets) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Cerne Code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cerne Code is a free, open-source desktop application that turns any language model into a coding agent. It can edit files, run commands, search the web, generate documents (Excel, Word, PDF, PowerPoint), and control the screen. It runs locally and supports models via Ollama, llama.cpp, LM Studio, OpenRouter, or any OpenAI-compatible API."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Cerne Code free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Cerne Code is completely free and open source under the MIT license. There are no paid tiers, no token counting, no subscriptions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Cerne Code work with local models?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Cerne Code supports Ollama, llama.cpp (with multiple configurable forks), and LM Studio. You can run everything 100% locally with nothing leaving your machine."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Cerne Code a Claude Code alternative?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Cerne Code offers similar capabilities to Claude Code — file editing, command execution, web search, sub-agents — but as a free desktop GUI rather than a paid CLI, and it works with local models."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What platforms does Cerne Code support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Currently Cerne Code ships as a Windows (x64) NSIS installer. The Tauri v2 framework supports cross-platform builds for Linux and macOS as well."
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="stylesheet" href="assets/style.css" />
   <style>
     .lang-bar {
