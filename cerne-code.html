@@ -241,6 +241,82 @@
     .shot, .shot-sm {
       cursor: zoom-in;
     }
+
+    /* Carrossel de slides na página */
+    .carousel {
+      position: relative;
+      margin: 32px 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 24px 60px -20px rgba(24, 24, 27, 0.25);
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+    .carousel-slide {
+      min-width: 100%;
+      aspect-ratio: 16 / 10;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+      cursor: zoom-in;
+    }
+    .carousel-slide .shot-label {
+      background: rgba(0, 0, 0, 0.65);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 11px;
+      border-radius: 7px;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.35);
+      color: #fff;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+      z-index: 2;
+      font-family: inherit;
+    }
+    .carousel-btn:hover {
+      background: rgba(0,0,0,0.6);
+    }
+    .carousel-prev { left: 12px; }
+    .carousel-next { right: 12px; }
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 0;
+    }
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s;
+      padding: 0;
+    }
+    .carousel-dot.active {
+      background: var(--text);
+      width: 20px;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
@@ -285,37 +361,35 @@
         </div>
       </section>
 
-      <div class="wrap">
-        <div class="shot" style="background-image:url('img/telainicial.png')">
-          <span class="shot-label">Main screen — chat with the agent, composer, and session sidebar</span>
+      <!-- Carrossel de imagens -->
+      <div class="carousel">
+        <div class="carousel-track" id="carousel-en">
+          <div class="carousel-slide" style="background-image:url('img/telainicial.png')" data-idx="0">
+            <span class="shot-label">Main screen — chat with the agent, composer, and session sidebar</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/configuracoes_idioma_openrouter_lammacpp_providers_mcp_memoria_busca_web_endpoint_locais_voz_microfone.png')" data-idx="1">
+            <span class="shot-label">Settings panel — language, AI providers, MCP, memory, web search, voice</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/organizar_sessoes_por_pastas.png')" data-idx="2">
+            <span class="shot-label">Session sidebar — organize sessions into folders</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/skills_agentes_personas_ferramentas_python.png')" data-idx="3">
+            <span class="shot-label">Agents, Skills, Personas &amp; Python tools panel</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/verdiff.png')" data-idx="4">
+            <span class="shot-label">Repository diff viewer — side by side changes</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/pasta_extras_modos_raciocinio_persona_mcp_metodo_fable.png')" data-idx="5">
+            <span class="shot-label">Extra paths, reasoning modes, persona, MCP, Fable method</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/ajuda.png')" data-idx="6">
+            <span class="shot-label">Multi-language help panel — 4 languages</span>
+          </div>
         </div>
+        <button class="carousel-btn carousel-prev" data-carousel="carousel-en">‹</button>
+        <button class="carousel-btn carousel-next" data-carousel="carousel-en">›</button>
       </div>
-
-      <!-- Feature screenshot row: settings, session tree, skills, diff -->
-      <div class="shot-grid">
-        <div class="shot shot-sm" style="background-image:url('img/configuracoes_idioma_openrouter_lammacpp_providers_mcp_memoria_busca_web_endpoint_locais_voz_microfone.png')">
-          <span class="shot-label">Settings panel — language, AI providers, MCP servers, memory, web search, voice, local endpoints</span>
-        </div>
-        <div class="shot shot-sm" style="background-image:url('img/organizar_sessoes_por_pastas.png')">
-          <span class="shot-label">Session sidebar — organize sessions into folders</span>
-        </div>
-      </div>
-      <div class="shot-grid">
-        <div class="shot shot-sm" style="background-image:url('img/skills_agentes_personas_ferramentas_python.png')">
-          <span class="shot-label">Agents, Skills, Personas &amp; Python tools panel</span>
-        </div>
-        <div class="shot shot-sm" style="background-image:url('img/verdiff.png')">
-          <span class="shot-label">Repository diff viewer — side by side changes</span>
-        </div>
-      </div>
-      <div class="shot-grid">
-        <div class="shot shot-sm" style="background-image:url('img/pasta_extras_modos_raciocinio_persona_mcp_metodo_fable.png')">
-          <span class="shot-label">Extra paths, reasoning modes, persona selector, MCP config, Fable method</span>
-        </div>
-        <div class="shot shot-sm" style="background-image:url('img/ajuda.png')">
-          <span class="shot-label">Multi-language help panel — English, Portuguese, Spanish, Chinese</span>
-        </div>
-      </div>
+      <div class="carousel-dots" id="dots-en"></div>
 
       <section class="feature-section">
         <div class="wrap">
@@ -410,14 +484,8 @@
         </div>
       </section>
 
-      <div class="wrap">
-        <div class="shot-grid">
-          <div class="shot shot-sm" style="background-image:url('img/skills_agentes_personas_ferramentas_python.png')"><span class="shot-label">Agents &amp; Skills, Personas &amp; Python Tools panel</span></div>
-          <div class="shot shot-sm" style="background-image:url('img/verdiff.png')"><span class="shot-label">Repository Diff Viewer — side by side</span></div>
-        </div>
-      </div>
-
-      <section class="feature-section">
+      
+          <section class="feature-section">
         <div class="wrap">
           <span class="eyebrow">Orchestration</span>
           <h2>An agent that knows how to delegate.</h2>
@@ -524,11 +592,35 @@
         </div>
       </section>
 
-      <div class="wrap">
-        <div class="shot" style="background-image:url('img/telainicial.png')">
-          <span class="shot-label">Tela principal — chat com o agente, composer e barra lateral de sessões</span>
+      <!-- Carrossel de imagens -->
+      <div class="carousel">
+        <div class="carousel-track" id="carousel-pt">
+          <div class="carousel-slide" style="background-image:url('img/telainicial.png')" data-idx="0">
+            <span class="shot-label">Tela principal — chat com o agente, composer e barra lateral de sessões</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/configuracoes_idioma_openrouter_lammacpp_providers_mcp_memoria_busca_web_endpoint_locais_voz_microfone.png')" data-idx="1">
+            <span class="shot-label">Configurações — idioma, providers, MCP, memória, busca web, voz</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/organizar_sessoes_por_pastas.png')" data-idx="2">
+            <span class="shot-label">Sidebar — organize sessões em pastas</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/skills_agentes_personas_ferramentas_python.png')" data-idx="3">
+            <span class="shot-label">Painel de Agents, Skills, Personas e Ferramentas Python</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/verdiff.png')" data-idx="4">
+            <span class="shot-label">Visualizador de Diff — alterações lado a lado</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/pasta_extras_modos_raciocinio_persona_mcp_metodo_fable.png')" data-idx="5">
+            <span class="shot-label">Pastas extras, modos de raciocínio, persona, MCP, método Fable</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/ajuda.png')" data-idx="6">
+            <span class="shot-label">Ajuda multi-idioma — 4 línguas</span>
+          </div>
         </div>
+        <button class="carousel-btn carousel-prev" data-carousel="carousel-pt">‹</button>
+        <button class="carousel-btn carousel-next" data-carousel="carousel-pt">›</button>
       </div>
+      <div class="carousel-dots" id="dots-pt"></div>
 
       <section class="feature-section">
         <div class="wrap">
@@ -623,14 +715,8 @@
         </div>
       </section>
 
-      <div class="wrap">
-        <div class="shot-grid">
-          <div class="shot shot-sm" style="background-image:url('img/skills_agentes_personas_ferramentas_python.png')"><span class="shot-label">Painel Agentes &amp; Skills, Personas e Ferramentas Python</span></div>
-          <div class="shot shot-sm" style="background-image:url('img/verdiff.png')"><span class="shot-label">Visualizador de Diff do Repositório</span></div>
-        </div>
-      </div>
-
-      <section class="feature-section">
+      
+          <section class="feature-section">
         <div class="wrap">
           <span class="eyebrow">Orquestração</span>
           <h2>Um agente que sabe delegar.</h2>
@@ -737,11 +823,35 @@
         </div>
       </section>
 
-      <div class="wrap">
-        <div class="shot" style="background-image:url('img/telainicial.png')">
-          <span class="shot-label">Pantalla principal — chat con el agente, compositor y barra lateral de sesiones</span>
+      <!-- Carrossel de imágenes -->
+      <div class="carousel">
+        <div class="carousel-track" id="carousel-es">
+          <div class="carousel-slide" style="background-image:url('img/telainicial.png')" data-idx="0">
+            <span class="shot-label">Pantalla principal — chat con el agente, compositor y barra lateral</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/configuracoes_idioma_openrouter_lammacpp_providers_mcp_memoria_busca_web_endpoint_locais_voz_microfone.png')" data-idx="1">
+            <span class="shot-label">Configuración — idioma, providers, MCP, memoria, búsqueda web, voz</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/organizar_sessoes_por_pastas.png')" data-idx="2">
+            <span class="shot-label">Sidebar — organiza sesiones en carpetas</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/skills_agentes_personas_ferramentas_python.png')" data-idx="3">
+            <span class="shot-label">Panel de Agents, Skills, Personas y Herramientas Python</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/verdiff.png')" data-idx="4">
+            <span class="shot-label">Visor de Diff — cambios lado a lado</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/pasta_extras_modos_raciocinio_persona_mcp_metodo_fable.png')" data-idx="5">
+            <span class="shot-label">Rutas extra, modos de razonamiento, persona, MCP, método Fable</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/ajuda.png')" data-idx="6">
+            <span class="shot-label">Ayuda multi-idioma — 4 idiomas</span>
+          </div>
         </div>
+        <button class="carousel-btn carousel-prev" data-carousel="carousel-es">‹</button>
+        <button class="carousel-btn carousel-next" data-carousel="carousel-es">›</button>
       </div>
+      <div class="carousel-dots" id="dots-es"></div>
 
       <section class="feature-section">
         <div class="wrap">
@@ -836,14 +946,8 @@
         </div>
       </section>
 
-      <div class="wrap">
-        <div class="shot-grid">
-          <div class="shot shot-sm" style="background-image:url('img/skills_agentes_personas_ferramentas_python.png')"><span class="shot-label">Panel de Agentes &amp; Skills, Personas y Herramientas Python</span></div>
-          <div class="shot shot-sm" style="background-image:url('img/verdiff.png')"><span class="shot-label">Visor de Diff del Repositorio</span></div>
-        </div>
-      </div>
-
-      <section class="feature-section">
+      
+          <section class="feature-section">
         <div class="wrap">
           <span class="eyebrow">Orquestación</span>
           <h2>Un agente que sabe delegar.</h2>
@@ -949,11 +1053,35 @@
         </div>
       </section>
 
-      <div class="wrap">
-        <div class="shot" style="background-image:url('img/telainicial.png')">
-          <span class="shot-label">主界面 — 与助手聊天、编辑器、会话侧边栏</span>
+      <!-- 图片轮播 -->
+      <div class="carousel">
+        <div class="carousel-track" id="carousel-zh">
+          <div class="carousel-slide" style="background-image:url('img/telainicial.png')" data-idx="0">
+            <span class="shot-label">主界面 — 与助手聊天、编辑器、会话侧边栏</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/configuracoes_idioma_openrouter_lammacpp_providers_mcp_memoria_busca_web_endpoint_locais_voz_microfone.png')" data-idx="1">
+            <span class="shot-label">设置 — 语言、提供商、MCP、记忆、搜索、语音</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/organizar_sessoes_por_pastas.png')" data-idx="2">
+            <span class="shot-label">侧边栏 — 将会话分组管理</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/skills_agentes_personas_ferramentas_python.png')" data-idx="3">
+            <span class="shot-label">Agents、Skills、人设和 Python 工具面板</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/verdiff.png')" data-idx="4">
+            <span class="shot-label">差异查看器 — 并排对比</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/pasta_extras_modos_raciocinio_persona_mcp_metodo_fable.png')" data-idx="5">
+            <span class="shot-label">额外路径、推理模式、人设、MCP、Fable 方法</span>
+          </div>
+          <div class="carousel-slide" style="background-image:url('img/ajuda.png')" data-idx="6">
+            <span class="shot-label">多语言帮助 — 4 种语言</span>
+          </div>
         </div>
+        <button class="carousel-btn carousel-prev" data-carousel="carousel-zh">‹</button>
+        <button class="carousel-btn carousel-next" data-carousel="carousel-zh">›</button>
       </div>
+      <div class="carousel-dots" id="dots-zh"></div>
 
       <section class="feature-section">
         <div class="wrap">
@@ -1048,14 +1176,8 @@
         </div>
       </section>
 
-      <div class="wrap">
-        <div class="shot-grid">
-          <div class="shot shot-sm" style="background-image:url('img/skills_agentes_personas_ferramentas_python.png')"><span class="shot-label">Agents &amp; Skills、人设和 Python 工具面板</span></div>
-          <div class="shot shot-sm" style="background-image:url('img/verdiff.png')"><span class="shot-label">仓库差异查看器</span></div>
-        </div>
-      </div>
-
-      <section class="feature-section">
+      
+          <section class="feature-section">
         <div class="wrap">
           <span class="eyebrow">编排</span>
           <h2>一个知道如何委派的助手。</h2>
@@ -1162,6 +1284,73 @@
   </div>
 
   <script>
+    // === Carrossel de slides na página ===
+    function initCarousel(trackId, dotsId) {
+      const track = document.getElementById(trackId);
+      if (!track) return;
+      const slides = track.querySelectorAll('.carousel-slide');
+      if (!slides.length) return;
+      const dotsContainer = document.getElementById(dotsId);
+      let current = 0;
+      const total = slides.length;
+
+      // Cria os dots
+      if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < total; i++) {
+          const dot = document.createElement('button');
+          dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('data-slide', i);
+          dot.addEventListener('click', () => goTo(i));
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function goTo(idx) {
+        current = Math.max(0, Math.min(idx, total - 1));
+        track.style.transform = `translateX(-${current * 100}%)`;
+        if (dotsContainer) {
+          dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === current);
+          });
+        }
+      }
+
+      function prev() { goTo(current - 1); }
+      function next() { goTo(current + 1); }
+
+      // Botões
+      const container = track.closest('.carousel');
+      if (container) {
+        container.querySelector('.carousel-prev')?.addEventListener('click', prev);
+        container.querySelector('.carousel-next')?.addEventListener('click', next);
+      }
+
+      // Clique no slide abre lightbox
+      slides.forEach(slide => {
+        slide.addEventListener('click', (e) => {
+          // Descobre o índice desse slide no carrossel ativo
+          const activeLang = document.querySelector('.lang-section.active');
+          if (!activeLang) return;
+          const activeCarousel = activeLang.querySelector('.carousel-track');
+          if (!activeCarousel) return;
+          const activeSlides = activeCarousel.querySelectorAll('.carousel-slide');
+          let idx = -1;
+          activeSlides.forEach((s, i) => {
+            if (s === slide || s.contains(e.target)) idx = i;
+          });
+          if (idx >= 0) openLightbox(idx);
+        });
+      });
+    }
+
+    // Inicializa carrosséis de todos os idiomas
+    initCarousel('carousel-en', 'dots-en');
+    initCarousel('carousel-pt', 'dots-pt');
+    initCarousel('carousel-es', 'dots-es');
+    initCarousel('carousel-zh', 'dots-zh');
+
+    // Re-inicializa ao trocar de idioma (para garantir que os eventos funcionem)
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const lang = btn.dataset.lang;
@@ -1173,7 +1362,7 @@
       });
     });
 
-    // === Lightbox (clique na imagem abre em tela cheia com zoom) ===
+    // === Lightbox (clique no slide abre em tela cheia com zoom) ===
     const lightbox = document.getElementById('lightbox');
     const lbImage = document.getElementById('lbImage');
     const lbClose = document.getElementById('lbClose');
@@ -1185,12 +1374,13 @@
     let currentIdx = 0;
 
     function collectShots() {
-      // Pega todas as imagens (.shot e .shot-sm) do idioma ativo
       const activeLang = document.querySelector('.lang-section.active');
       if (!activeLang) return;
-      const shots = activeLang.querySelectorAll('.shot, .shot-sm');
+      const track = activeLang.querySelector('.carousel-track');
+      if (!track) return;
+      const slides = track.querySelectorAll('.carousel-slide');
       allShots = [];
-      shots.forEach(s => {
+      slides.forEach(s => {
         const bg = s.style.backgroundImage;
         const match = bg.match(/url\(['"]?(.*?)['"]?\)/);
         if (match) {
@@ -1229,38 +1419,19 @@
       else openLightbox(0);
     }
 
-    // Clique nas imagens abre o lightbox
-    document.querySelectorAll('.shot, .shot-sm').forEach(el => {
-      el.addEventListener('click', (e) => {
-        if (e.target.closest('.shot-label')) return;
-        // Descobre o índice dessa imagem no idioma ativo
-        const activeLang = document.querySelector('.lang-section.active');
-        if (!activeLang) return;
-        const shots = activeLang.querySelectorAll('.shot, .shot-sm');
-        let idx = -1;
-        shots.forEach((s, i) => {
-          if (s === el || s.contains(el)) idx = i;
-        });
-        if (idx >= 0) openLightbox(idx);
-      });
-    });
-
     lbClose.addEventListener('click', closeLightbox);
     lbPrev.addEventListener('click', prevImage);
     lbNext.addEventListener('click', nextImage);
 
-    // Fecha com clique no fundo (fora da imagem)
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) closeLightbox();
     });
 
-    // Zoom ao clicar na imagem dentro do lightbox
     lbImage.addEventListener('click', (e) => {
       e.stopPropagation();
       lbImage.classList.toggle('zoomed');
     });
 
-    // Teclado: Escape fecha, setas navega
     document.addEventListener('keydown', (e) => {
       if (!lightbox.classList.contains('open')) return;
       if (e.key === 'Escape') closeLightbox();
