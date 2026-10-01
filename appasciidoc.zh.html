@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AppAsciiDoc — 轻量级 AsciiDoc 文档编辑器</title>
+  <meta name="description" content="使用 AppAsciiDoc 编写和整理技术文档、手册、学习笔记与项目知识。这是一款轻量、离线优先的桌面应用，支持 Windows、Linux 和 macOS。" />
+  <meta name="author" content="Ruvian Fabrin" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ruvianfabrin.github.io/appasciidoc.zh.html" />
+  <link rel="alternate" hreflang="en" href="https://ruvianfabrin.github.io/appasciidoc.html" />
+  <link rel="alternate" hreflang="pt-BR" href="https://ruvianfabrin.github.io/appasciidoc.pt-BR.html" />
+  <link rel="alternate" hreflang="es" href="https://ruvianfabrin.github.io/appasciidoc.es.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://ruvianfabrin.github.io/appasciidoc.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://ruvianfabrin.github.io/appasciidoc.html" />
+  <meta property="og:title" content="AppAsciiDoc — 轻量级 AsciiDoc 文档编辑器" />
+  <meta property="og:description" content="使用 AppAsciiDoc 编写和整理技术文档、手册、学习笔记与项目知识。这是一款轻量、离线优先的桌面应用，支持 Windows、Linux 和 macOS。" />
+  <meta property="og:url" content="https://ruvianfabrin.github.io/appasciidoc.zh.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="AppAsciiDoc — 轻量级 AsciiDoc 文档编辑器" />
+  <meta name="twitter:description" content="使用 AppAsciiDoc 编写和整理技术文档、手册、学习笔记与项目知识。这是一款轻量、离线优先的桌面应用，支持 Windows、Linux 和 macOS。" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": "https://github.com/RuvianFabrin/appasciidoc#app",
+    "name": "AppAsciiDoc",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Windows 10 version 1803 or later, Linux, macOS 10.15 or later",
+    "description": "用于编写和整理 AsciiDoc 文档的轻量离线桌面工作区，支持可选 Git 同步和密码 AGE 加密。",
+    "inLanguage": ["en", "pt-BR", "es", "zh-Hans"],
+    "author": {"@type": "Person", "name": "Ruvian Fabrin", "url": "https://ruvianfabrin.github.io/"},
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+    "license": "https://opensource.org/licenses/MIT",
+    "url": "https://ruvianfabrin.github.io/appasciidoc.zh.html",
+    "codeRepository": "https://github.com/RuvianFabrin/appasciidoc"
+  }
+  </script>
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .lang-bar { display:flex; gap:8px; margin:24px auto 0; flex-wrap:wrap; }
+    .lang-btn { background:transparent; border:1px solid var(--border); border-radius:999px; padding:8px 16px; font-size:14px; font-weight:600; color:var(--text-muted); text-decoration:none; }
+    .lang-btn:hover,.lang-btn.active { background:var(--text); color:#fff; border-color:var(--text); }
+    .product-hero { padding-top:64px; } .product-hero .lede { max-width:700px; } .product-hero .btn-row { margin-top:24px; }
+    .section-intro { max-width:700px; margin-bottom:28px; } .section-intro p { font-size:17px; }
+    .feature-card { border:1px solid var(--border); border-radius:var(--radius); padding:22px; background:var(--bg); } .feature-card h3 { margin:0 0 8px; } .feature-card p { font-size:14px; margin:0; }
+    .use-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; padding:0; list-style:none; margin:24px 0; } .use-list li { padding:14px 16px; border:1px solid var(--border); border-radius:12px; background:var(--bg-soft); font-weight:600; } .platform-note { font-size:13px; }
+    @media(max-width:640px) { .lang-bar { padding:0 20px; } .lang-btn { flex:1; padding:9px 10px; text-align:center; } .product-hero { padding-top:48px; } }
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="wrap"><a class="brand" href="index.html">Ruvian Fabrin</a><nav class="site-nav" aria-label="主导航"><a href="index.html">首页</a><a href="cerne-code.html">Cerne Code</a><a href="appasciidoc.html" aria-current="page">AppAsciiDoc</a><a href="https://github.com/RuvianFabrin" target="_blank" rel="noopener">GitHub</a></nav></div></header>
+  <div class="wrap"><nav class="lang-bar" aria-label="选择语言">
+    <a class="lang-btn" href="appasciidoc.html" lang="en">English</a>
+    <a class="lang-btn" href="appasciidoc.pt-BR.html" lang="pt-BR">Português</a>
+    <a class="lang-btn" href="appasciidoc.es.html" lang="es">Español</a>
+    <a class="lang-btn active" href="appasciidoc.zh.html" lang="zh-Hans" aria-current="page">中文</a>
+  </nav></div>
+  <main>
+    <div class="lang-section active" id="lang-zh" lang="zh-Hans">
+      <section class="hero product-hero"><div class="wrap">
+        <span class="eyebrow">用纯文本记录想法</span><h1>写下一次，轻松查找、整理与分享。</h1>
+        <p class="lede">AppAsciiDoc 是一款轻量级桌面工作区，帮助你把零散笔记整理成清晰、相互关联的文档。使用 AsciiDoc 写作，编辑时即可查看预览，并将文件保存在自己管理的文件夹中。</p>
+        <div class="btn-row"><a class="btn btn-primary" href="https://github.com/RuvianFabrin/appasciidoc" target="_blank" rel="noopener">查看开源项目</a><a class="btn btn-secondary" href="#features-zh">了解功能</a></div>
+        <div class="tag-row"><span class="tag">Windows</span><span class="tag">Linux</span><span class="tag">macOS</span><span class="tag">离线优先</span><span class="tag">MIT 许可</span></div>
+      </div></section>
+      <section class="feature-section" id="features-zh"><div class="wrap">
+        <div class="section-intro"><span class="eyebrow">为知识整理而设计</span><h2>让文档创作持续推进所需的工具。</h2><p>从初稿到成品，在同一个专注的空间中写作、整理并分享。</p></div>
+        <div class="card-grid">
+          <article class="feature-card"><h3>边写边预览</h3><p>使用 AsciiDoc 和行内格式编写，也可以切换到分栏视图与预览。标题、表格、链接和代码块会随写作逐步呈现。</p></article>
+          <article class="feature-card"><h3>连接相关笔记</h3><p>将笔记放入文件夹、链接相关页面、搜索整个工作区，并查看反向链接、最近文件和本地笔记关系图。</p></article>
+          <article class="feature-card"><h3>由你决定何时同步</h3><p>Git 是可选功能。打开文件夹不会自动创建仓库。配置远程仓库后，可先查看本地与远程差异，再点击开始同步。冲突版本会保留下来供你检查。</p></article>
+          <article class="feature-card"><h3>使用 AGE 保护笔记</h3><p>用密码加密笔记，并保留可通过 Git 同步的 .age 文件。在另一台 AppAsciiDoc 设备上使用同一密码即可解密。</p></article>
+          <article class="feature-card"><h3>导出并分享</h3><p>将文档导出为 HTML、PDF 或静态网站。同一份内容可用于内部流程、公开指南和项目文档。</p></article>
+          <article class="feature-card"><h3>使用熟悉的语言</h3><p>界面支持巴西葡萄牙语、英语、西班牙语和简体中文。</p></article>
+        </div>
+      </div></section>
+      <section class="feature-section"><div class="wrap"><div class="section-intro"><span class="eyebrow">一个工具，多种写作场景</span><h2>让有用的信息井然有序。</h2><p>AsciiDoc 适合撰写长篇、结构化内容。AppAsciiDoc 则让这些文档集中保存，并且易于搜索。</p></div><ul class="use-list"><li>技术文档</li><li>团队手册与操作流程</li><li>学习笔记与学习指南</li><li>项目日志与决策记录</li><li>产品与 API 文档</li><li>个人知识库</li></ul></div></section>
+      <section class="feature-section"><div class="wrap"><div class="section-intro"><span class="eyebrow">轻巧而专注</span><h2>文件由你掌控，应用不会喧宾夺主。</h2><p>AppAsciiDoc 使用本地文件夹，无需账号或云服务。当前 Windows NSIS 安装包约为 4.5 MB。内存占用尚未测量。</p></div><h3>桌面系统兼容性</h3><div class="mini-grid"><div><h3>Windows</h3><p>64 位 Windows 10 版本 1803 或更高版本，以及 Windows 11。需要 Microsoft Edge WebView2 Runtime。</p></div><div><h3>Linux</h3><p>64 位系统，支持 GTK 3 和 WebKitGTK 4.1。Ubuntu 22.04+ 与 Debian 12+ 是参考基线。</p></div><div><h3>macOS</h3><p>macOS Catalina 10.15 或更高版本。当前通用构建支持 Intel 与 Apple Silicon Mac。</p></div></div><p class="platform-note">最低版本依据项目配置和 Tauri 要求。CI 会为三种桌面系统构建；仍需在每个最低版本的实际设备上测试。Linux AppImage 需要 GTK 3 和 WebKitGTK 4.1 运行库。</p><div class="callout"><strong>采用 MIT 许可证开源。</strong>查看代码、使用应用，并按需适配自己的工作流程。</div><div class="btn-row"><a class="btn btn-primary" href="https://github.com/RuvianFabrin/appasciidoc" target="_blank" rel="noopener">查看源代码</a><a class="btn btn-secondary" href="https://github.com/RuvianFabrin/appasciidoc/actions" target="_blank" rel="noopener">查看构建任务</a></div></div></section>
+    </div>
+    <section class="feature-section" aria-labelledby="faq-title"><div class="wrap"><div class="section-intro"><h2 id="faq-title">常见问题</h2></div><div class="mini-grid"><div><h3>不使用 Git 或云账户也能使用 AppAsciiDoc 吗？</h3><p>可以。AppAsciiDoc 可打开本地文件夹，无需账户或云服务。Git 同步是可选的；配置远程仓库并点击同步后才会开始。</p></div><div><h3>AGE 加密如何工作？</h3><p>使用密码加密笔记后会生成兼容 AGE 工具的 .age 文件。可在另一台 AppAsciiDoc 设备上使用相同密码解密。</p></div></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="wrap"><span>© 2026 Ruvian Fabrin</span><span><a href="https://github.com/RuvianFabrin/appasciidoc" target="_blank" rel="noopener">AppAsciiDoc on GitHub</a></span></div></footer>
+</body>
+</html>

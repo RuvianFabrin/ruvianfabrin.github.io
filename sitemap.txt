@@ -1,2 +1,6 @@
 https://ruvianfabrin.github.io/
 https://ruvianfabrin.github.io/cerne-code.html
+https://ruvianfabrin.github.io/appasciidoc.html
+https://ruvianfabrin.github.io/appasciidoc.pt-BR.html
+https://ruvianfabrin.github.io/appasciidoc.es.html
+https://ruvianfabrin.github.io/appasciidoc.zh.html
