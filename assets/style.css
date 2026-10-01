@@ -222,18 +222,28 @@ p {
 .download-group h3 { margin: 0 0 10px; font-size: 15px; }
 .download-link {
   display: flex;
+  width: 100%;
+  min-height: 54px;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
   margin-top: 8px;
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  color: var(--text);
+  padding: 11px 14px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--text);
+  color: #fff;
+  text-align: left;
   text-decoration: none;
 }
-.download-link:hover { border-color: #a5a5b2; background: var(--bg-soft); }
-.download-link small { display: block; margin-top: 2px; color: var(--text-muted); font-size: 12px; }
+.download-link:hover {
+  transform: translateY(-2px);
+  background: #000;
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(24, 24, 27, 0.16);
+}
+.download-link small { display: block; margin-top: 3px; color: rgba(255, 255, 255, 0.74); font-size: 12px; font-weight: 400; }
+.download-link > span:last-child { font-size: 19px; }
 
 /* Placeholder de screenshot — vira a imagem real automaticamente assim que
    um arquivo existir no caminho referenciado em background-image, sem
