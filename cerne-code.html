@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cerne Code — Free Local Coding Agent | Open Source (MIT) | Tauri + Rust + Vue</title>
-  
+
   <!-- SEO Meta -->
-  <meta name="description" content="Cerne Code: free, open-source, local-first coding agent with GUI. Edit files, run commands, search the web, generate documents, control the screen. Works with Ollama, llama.cpp, LM Studio, OpenRouter, and any OpenAI-compatible API. Download for Windows." />
+  <meta name="description" content="Cerne Code: free, open-source, local-first coding agent with GUI. Edit files, run commands, search the web, generate documents, control the screen. Works with Ollama, llama.cpp, LM Studio, OpenRouter, and any OpenAI-compatible API. Download for Windows, Linux and macOS." />
   <meta name="keywords" content="coding agent, AI coding assistant, local AI, open source, Tauri, Rust, Vue, Claude Code alternative, free coding agent, Ollama, llama.cpp, LM Studio, AI tools, developer tools, MIT license, Windows desktop app" />
   <meta name="author" content="Ruvian Fabrin" />
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph (Facebook, LinkedIn, Discord) -->
   <meta property="og:title" content="Cerne Code — Free Local Coding Agent" />
-  <meta property="og:description" content="A free, open-source desktop coding agent that runs 100% locally. Edit files, run commands, search the web, control the screen. Works with Ollama, llama.cpp, LM Studio, and OpenAI-compatible APIs." />
+  <meta property="og:description" content="A free, open-source, local-first desktop coding agent for Windows, Linux and macOS. Edit files, run commands, search the web, control the screen. Works with Ollama, llama.cpp, LM Studio, and OpenAI-compatible APIs." />
   <meta property="og:url" content="https://ruvianfabrin.github.io/cerne-code.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://ruvianfabrin.github.io/img/telainicial.png" />
@@ -24,7 +24,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Cerne Code — Free Local Coding Agent" />
-  <meta name="twitter:description" content="Free, open-source coding agent desktop app. 100% local. Works with Ollama, llama.cpp, LM Studio, and any OpenAI API." />
+  <meta name="twitter:description" content="Free, open-source, local-first desktop coding agent for Windows, Linux and macOS. Works with Ollama, llama.cpp, LM Studio, and any OpenAI API." />
   <meta name="twitter:image" content="https://ruvianfabrin.github.io/img/telainicial.png" />
 
   <!-- This page changes language in place; localized URLs are not available yet. -->
@@ -39,7 +39,7 @@
     "@type": "SoftwareApplication",
     "name": "Cerne Code",
     "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "Windows 10+",
+    "operatingSystem": "Windows 10+, Linux, macOS",
     "description": "A free, open-source desktop coding agent. Edits files, runs commands, searches the web, generates documents, controls the screen. Supports local models (Ollama, llama.cpp, LM Studio) and API providers (OpenRouter, Claude, Grok, Qwen).",
     "author": {
       "@type": "Person",
@@ -52,9 +52,9 @@
       "priceCurrency": "USD"
     },
     "license": "https://opensource.org/licenses/MIT",
-    "softwareVersion": "0.1.1",
-    "releaseNotes": "https://github.com/RuvianFabrin/cerne-code/releases/tag/v0.1.1",
-    "downloadUrl": "https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe",
+    "softwareVersion": "0.1.3",
+    "releaseNotes": "https://github.com/RuvianFabrin/cerne-code/releases/tag/v0.1.3",
+    "downloadUrl": "https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_x64-setup.exe",
     "url": "https://ruvianfabrin.github.io/cerne-code.html",
     "screenshot": "https://ruvianfabrin.github.io/img/telainicial.png",
     "keywords": "coding agent, AI assistant, local AI, Tauri, Rust, developer tools"
@@ -104,7 +104,7 @@
         "name": "What platforms does Cerne Code support?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Currently Cerne Code ships as a Windows (x64) NSIS installer. The Tauri v2 framework supports cross-platform builds for Linux and macOS as well."
+          "text": "Cerne Code ships installers for Windows x64, universal macOS (Apple Silicon and Intel), and Linux x64. Linux offers full and compat variants; compat excludes native desktop capture and automation."
         }
       }
     ]
@@ -113,6 +113,8 @@
 
   <link rel="stylesheet" href="assets/style.css" />
   <style>
+    .release-news li { margin: 12px 0; line-height: 1.7; }
+    .download-platform-note { line-height: 1.7; color: var(--muted, #555); margin-top: 18px; }
     .lang-bar {
       display: flex;
       gap: 6px;
@@ -351,14 +353,18 @@
           <p class="lede">
             Cerne Code is a native desktop app that turns any language model into a real coding agent.
             Edit files, run commands, search the web, create documents, control the screen — all local,
-            all free, no tokens to buy.
+            free software with local models or optional paid cloud APIs.
           </p>
           <div class="btn-row">
-            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe">Download for Windows (v0.1.1)</a>
+            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_x64-setup.exe">Download for Windows (v0.1.3)</a>
             <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">View on GitHub</a>
+          <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-full.AppImage" data-release-platform="linux">Linux x64 · full AppImage</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_universal.dmg" data-release-platform="mac">macOS · Apple Silicon + Intel</a>
           </div>
         </div>
       </section>
+      <section class="feature-section release-news" aria-labelledby="release-en"><div class="wrap"><span class="eyebrow">v0.1.3</span><h2 id="release-en">What’s new in v0.1.3</h2><ul><li><strong>Direct images and videos:</strong> composer buttons send only the current prompt to the selected generator, without the text LLM. Media prompts and results have a separate history.</li><li><strong>Independent APIs:</strong> images and videos can use different providers, servers and models. Qwen Image can remain dedicated to images. OpenRouter reuses its existing connection; recognized connections can also be reused.</li><li><strong>Service-specific adapters:</strong> OpenRouter, Google Gemini/Imagen/Veo, Grok/xAI, fal.ai and local/compatible APIs. OpenAI supports image generation/editing; the Sora video API has shut down. Fetch model catalogs without generating media. fal.ai uses endpoint IDs; its adapter does not yet support editing with attachments.</li><li><strong>Results in chat:</strong> thumbnails with enlargement, video playback and file opening. Videos are saved to the chosen folder; a writable folder is required before contacting the API.</li><li><strong>Long Horizon and task queue:</strong> improved checkpoints and compact memory, correct session-file access and protection against repetition without progress. Consistent save and start-queue buttons.</li><li><strong>Browser:</strong> preconfigured Playwright MCP, optional disabling, Chrome/Edge selection and a setup dialog. Use a separate profile or connect to an existing profile through the extension to read pages, fill forms, click and inspect console messages.</li><li><strong>Local models:</strong> improved Strata start/stop lifecycle and health indicators. On Windows, its adapter can open a visible console. Fixed system-message ordering for models such as Bonsai 2.</li><li><strong>Readability:</strong> Outfit as the default font, previous fonts still available, adjusted sizes and better Markdown proportions in user and assistant messages: headings, lists, tables, code and spacing.</li></ul></div></section>
+
 
       <!-- Carrossel de imagens -->
       <div class="carousel">
@@ -483,7 +489,7 @@
         </div>
       </section>
 
-      
+
           <section class="feature-section">
         <div class="wrap">
           <span class="eyebrow">Orchestration</span>
@@ -559,11 +565,19 @@
       <section class="feature-section">
         <div class="wrap">
           <span class="eyebrow">Download</span>
-          <h2>Installer for Windows (x64) — v0.1.1.</h2>
+          <h2>Windows, Linux and macOS installers — v0.1.3</h2>
           <div class="btn-row">
-            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe">Cerne.Code_0.1.1_x64-setup.exe</a>
-            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/tag/v0.1.1" target="_blank" rel="noopener">View release notes</a>
+            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_x64-setup.exe">Windows x64 · v0.1.3</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/tag/v0.1.3" target="_blank" rel="noopener">View release notes</a>
+
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-full.AppImage" data-release-platform="linux">Linux x64 · full AppImage</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_universal.dmg" data-release-platform="mac">macOS · Apple Silicon + Intel</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-compat.AppImage" data-release-platform="compat">Linux x64 · compat AppImage</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-full.deb" data-release-platform="deb">Linux full · .deb</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code-0.1.3-1.x86_64-full.rpm" data-release-platform="rpm">Linux full · .rpm</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-compat.deb" data-release-platform="compatDeb">Linux compat · .deb</a>
           </div>
+          <p class="download-platform-note">Linux full includes native desktop capture/automation. Compat supports older distributions without that feature. Browser tasks and media APIs work in both variants. Local servers need their own installation on each OS; video playback depends on system codecs.</p>
           <div class="callout">
             <strong>Open source (MIT).</strong> Repository at
             <a href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">github.com/RuvianFabrin/cerne-code</a>.
@@ -582,14 +596,18 @@
           <p class="lede">
             Cerne Code é um app desktop nativo que transforma qualquer modelo de linguagem num agente
             de código de verdade. Editar arquivos, rodar comandos, pesquisar na web, criar documentos,
-            controlar a tela — tudo local, tudo grátis, sem contar tokens.
+            controlar a tela — software gratuito, com modelos locais ou APIs de nuvem opcionais e pagas.
           </p>
           <div class="btn-row">
-            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe">Baixar para Windows (v0.1.1)</a>
+            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_x64-setup.exe">Baixar para Windows (v0.1.3)</a>
             <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">Ver no GitHub</a>
+          <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-full.AppImage" data-release-platform="linux">Linux x64 · AppImage full</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_universal.dmg" data-release-platform="mac">macOS · Apple Silicon + Intel</a>
           </div>
         </div>
       </section>
+      <section class="feature-section release-news" aria-labelledby="release-pt-BR"><div class="wrap"><span class="eyebrow">v0.1.3</span><h2 id="release-pt-BR">Novidades da v0.1.3</h2><ul><li><strong>Imagem e vídeo diretos:</strong> botões no composer enviam somente o prompt atual ao gerador escolhido, sem passar pelo LLM de texto. Prompts e resultados de mídia têm histórico separado.</li><li><strong>APIs independentes:</strong> imagem e vídeo podem usar provedores, servidores e modelos diferentes. Qwen Image pode continuar dedicado a imagens. OpenRouter reutiliza a conexão já configurada; conexões reconhecidas também podem ser reaproveitadas.</li><li><strong>Adaptadores por serviço:</strong> OpenRouter, Google Gemini/Imagen/Veo, Grok/xAI, fal.ai e APIs locais/compatíveis. OpenAI oferece geração/edição de imagens; a API Sora de vídeo foi encerrada. Consulta de modelos sem gerar mídia. fal.ai usa o ID do endpoint; edição fal.ai com anexos ainda não está disponível.</li><li><strong>Resultados no chat:</strong> miniaturas com ampliação, reprodução de vídeo e abertura dos arquivos. Vídeos são salvos na pasta escolhida; uma pasta gravável é exigida antes do envio à API.</li><li><strong>Long Horizon e fila:</strong> melhorias de checkpoint e memória compacta, acesso correto aos arquivos da sessão e proteção contra repetições sem progresso. Botões de salvar e iniciar fila padronizados.</li><li><strong>Navegador:</strong> Playwright MCP pré-configurado, opção de desativar, escolha Chrome/Edge e modal de configuração. Perfil separado ou conexão ao perfil existente por extensão para ler páginas, preencher campos, clicar e consultar o console.</li><li><strong>Modelos locais:</strong> ajustes no ciclo de iniciar/parar e na indicação de saúde do Strata. No Windows, seu adaptador pode abrir um console visível. Correção da ordem das mensagens de sistema para modelos como Bonsai 2.</li><li><strong>Leitura:</strong> Outfit como fonte padrão, fontes anteriores disponíveis, tamanho ajustado e Markdown mais proporcional em perguntas e respostas: títulos, listas, tabelas, código e espaçamento.</li></ul></div></section>
+
 
       <!-- Carrossel de imagens -->
       <div class="carousel">
@@ -714,7 +732,7 @@
         </div>
       </section>
 
-      
+
           <section class="feature-section">
         <div class="wrap">
           <span class="eyebrow">Orquestração</span>
@@ -790,11 +808,19 @@
       <section class="feature-section">
         <div class="wrap">
           <span class="eyebrow">Baixar</span>
-          <h2>Instalador para Windows (x64) — v0.1.1.</h2>
+          <h2>Instaladores para Windows, Linux e macOS — v0.1.3</h2>
           <div class="btn-row">
-            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe">Cerne.Code_0.1.1_x64-setup.exe</a>
-            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/tag/v0.1.1" target="_blank" rel="noopener">Ver notas da versão</a>
+            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_x64-setup.exe">Windows x64 · v0.1.3</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/tag/v0.1.3" target="_blank" rel="noopener">Ver notas da versão</a>
+
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-full.AppImage" data-release-platform="linux">Linux x64 · AppImage full</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_universal.dmg" data-release-platform="mac">macOS · Apple Silicon + Intel</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-compat.AppImage" data-release-platform="compat">Linux x64 · AppImage compat</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-full.deb" data-release-platform="deb">Linux full · .deb</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code-0.1.3-1.x86_64-full.rpm" data-release-platform="rpm">Linux full · .rpm</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-compat.deb" data-release-platform="compatDeb">Linux compat · .deb</a>
           </div>
+          <p class="download-platform-note">Linux full inclui captura/automação nativa do desktop. Compat atende distribuições mais antigas sem esse recurso. Navegador e APIs de mídia funcionam nas duas variantes. Servidores locais precisam de instalação própria em cada sistema; reprodução de vídeo depende dos codecs do sistema.</p>
           <div class="callout">
             <strong>Código aberto (MIT).</strong> Repositório em
             <a href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">github.com/RuvianFabrin/cerne-code</a>.
@@ -813,14 +839,18 @@
           <p class="lede">
             Cerne Code es una app de escritorio nativa que convierte cualquier modelo de lenguaje en un
             agente de código real. Editar archivos, ejecutar comandos, buscar en la web, crear documentos,
-            controlar la pantalla — todo local, todo gratis, sin contar tokens.
+            controlar la pantalla — software gratuito, con modelos locales o APIs de nube opcionales de pago.
           </p>
           <div class="btn-row">
-            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe">Descargar para Windows (v0.1.1)</a>
+            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_x64-setup.exe">Descargar para Windows (v0.1.3)</a>
             <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">Ver en GitHub</a>
+          <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-full.AppImage" data-release-platform="linux">Linux x64 · AppImage full</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_universal.dmg" data-release-platform="mac">macOS · Apple Silicon + Intel</a>
           </div>
         </div>
       </section>
+      <section class="feature-section release-news" aria-labelledby="release-es"><div class="wrap"><span class="eyebrow">v0.1.3</span><h2 id="release-es">Novedades de la v0.1.3</h2><ul><li><strong>Imágenes y vídeos directos:</strong> botones del composer envían únicamente el prompt actual al generador elegido, sin pasar por el LLM de texto. Los prompts y resultados tienen un historial separado.</li><li><strong>APIs independientes:</strong> imágenes y vídeos pueden usar proveedores, servidores y modelos distintos. Qwen Image puede seguir dedicado a imágenes. OpenRouter reutiliza la conexión existente; también se pueden reutilizar conexiones reconocidas.</li><li><strong>Adaptadores por servicio:</strong> OpenRouter, Google Gemini/Imagen/Veo, Grok/xAI, fal.ai y APIs locales/compatibles. OpenAI permite generar/editar imágenes; la API de vídeo Sora fue retirada. Consulta de modelos sin generar medios. fal.ai utiliza el ID del endpoint; su adaptador todavía no admite edición con adjuntos.</li><li><strong>Resultados en el chat:</strong> miniaturas ampliables, reproducción de vídeo y apertura de archivos. Los vídeos se guardan en la carpeta elegida; se exige una carpeta con permiso de escritura antes de contactar con la API.</li><li><strong>Long Horizon y cola:</strong> mejores checkpoints y memoria compacta, acceso correcto a los archivos de sesión y protección contra repeticiones sin progreso. Botones de guardar e iniciar cola uniformes.</li><li><strong>Navegador:</strong> Playwright MCP preconfigurado, opción de desactivarlo, selección Chrome/Edge y diálogo de configuración. Perfil separado o conexión al perfil existente mediante extensión para leer páginas, rellenar campos, hacer clic y consultar la consola.</li><li><strong>Modelos locales:</strong> mejoras en inicio/parada e indicadores de salud de Strata. En Windows, su adaptador puede abrir una consola visible. Corrección del orden de los mensajes de sistema para modelos como Bonsai 2.</li><li><strong>Lectura:</strong> Outfit como fuente predeterminada, fuentes anteriores disponibles, tamaños ajustados y Markdown más proporcional en preguntas y respuestas: títulos, listas, tablas, código y espaciado.</li></ul></div></section>
+
 
       <!-- Carrossel de imágenes -->
       <div class="carousel">
@@ -945,7 +975,7 @@
         </div>
       </section>
 
-      
+
           <section class="feature-section">
         <div class="wrap">
           <span class="eyebrow">Orquestación</span>
@@ -1021,11 +1051,19 @@
       <section class="feature-section">
         <div class="wrap">
           <span class="eyebrow">Descargar</span>
-          <h2>Instalador para Windows (x64) — v0.1.1.</h2>
+          <h2>Instaladores para Windows, Linux y macOS — v0.1.3</h2>
           <div class="btn-row">
-            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe">Cerne.Code_0.1.1_x64-setup.exe</a>
-            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/tag/v0.1.1" target="_blank" rel="noopener">Ver notas de la versión</a>
+            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_x64-setup.exe">Windows x64 · v0.1.3</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/tag/v0.1.3" target="_blank" rel="noopener">Ver notas de la versión</a>
+
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-full.AppImage" data-release-platform="linux">Linux x64 · AppImage full</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_universal.dmg" data-release-platform="mac">macOS · Apple Silicon + Intel</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-compat.AppImage" data-release-platform="compat">Linux x64 · AppImage compat</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-full.deb" data-release-platform="deb">Linux full · .deb</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code-0.1.3-1.x86_64-full.rpm" data-release-platform="rpm">Linux full · .rpm</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-compat.deb" data-release-platform="compatDeb">Linux compat · .deb</a>
           </div>
+          <p class="download-platform-note">Linux full incluye captura/automatización nativa del escritorio. Compat admite distribuciones antiguas sin esa función. Navegador y APIs de medios funcionan en ambas variantes. Los servidores locales requieren su propia instalación en cada sistema; el vídeo depende de los códecs del sistema.</p>
           <div class="callout">
             <strong>Código abierto (MIT).</strong> Repositorio en
             <a href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">github.com/RuvianFabrin/cerne-code</a>.
@@ -1043,14 +1081,18 @@
           <h1>一个生活在您电脑上的代码助手。</h1>
           <p class="lede">
             Cerne Code 是一款原生桌面应用，能将任何语言模型转变为真正的代码助手。
-            编辑文件、运行命令、搜索网页、创建文档、控制屏幕 — 全部本地运行，完全免费，不计 token。
+            编辑文件、运行命令、搜索网页、创建文档、控制屏幕 — 免费软件，可使用本地模型或可选的付费云端 API。
           </p>
           <div class="btn-row">
-            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe">下载 Windows 版 (v0.1.1)</a>
+            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_x64-setup.exe">下载 Windows 版 (v0.1.3)</a>
             <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">在 GitHub 上查看</a>
+          <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-full.AppImage" data-release-platform="linux">Linux x64 · full AppImage</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_universal.dmg" data-release-platform="mac">macOS · Apple Silicon + Intel</a>
           </div>
         </div>
       </section>
+      <section class="feature-section release-news" aria-labelledby="release-zh"><div class="wrap"><span class="eyebrow">v0.1.3</span><h2 id="release-zh">v0.1.3 更新内容</h2><ul><li><strong>直接生成图片和视频：</strong> 输入框按钮只将当前提示词发送给所选生成器，不经过文本大模型。媒体提示词和结果使用独立历史记录。</li><li><strong>独立的 API 配置：</strong> 图片和视频可使用不同的服务商、服务器和模型。Qwen Image 可以继续专门用于图片。OpenRouter 复用已有连接，也支持复用可识别的其他连接。</li><li><strong>服务商专用适配器：</strong> 支持 OpenRouter、Google Gemini/Imagen/Veo、Grok/xAI、fal.ai 及本地/兼容 API。OpenAI 支持图片生成和编辑；Sora 视频 API 已停止服务。可查询模型列表而不生成媒体。fal.ai 使用端点 ID；其适配器暂不支持通过附件编辑图片。</li><li><strong>聊天中的媒体结果：</strong> 图片缩略图可放大查看，视频可直接播放，文件可打开。视频保存到选定文件夹；调用 API 前必须选择可写入的文件夹。</li><li><strong>Long Horizon 和任务队列：</strong> 改进检查点与精简记忆，修正会话文件访问，并防止无进展的重复执行。统一保存和启动队列按钮样式。</li><li><strong>浏览器：</strong> 预配置 Playwright MCP，可禁用，支持选择 Chrome/Edge，并提供设置对话框。可使用独立配置文件，或通过扩展连接已有配置文件，以读取网页、填写表单、点击及查看控制台消息。</li><li><strong>本地模型：</strong> 改进 Strata 的启动/停止流程及健康状态提示。Windows 上其适配器可打开可见控制台。修正 Bonsai 2 等模型的系统消息顺序。</li><li><strong>阅读体验：</strong> 默认字体改为 Outfit，保留原有字体选项，调整字号，并优化用户消息和模型回复的 Markdown 比例，包括标题、列表、表格、代码和间距。</li></ul></div></section>
+
 
       <!-- 图片轮播 -->
       <div class="carousel">
@@ -1175,7 +1217,7 @@
         </div>
       </section>
 
-      
+
           <section class="feature-section">
         <div class="wrap">
           <span class="eyebrow">编排</span>
@@ -1251,11 +1293,19 @@
       <section class="feature-section">
         <div class="wrap">
           <span class="eyebrow">下载</span>
-          <h2>Windows (x64) 安装程序 — v0.1.1。</h2>
+          <h2>Windows、Linux 和 macOS 安装包 — v0.1.3</h2>
           <div class="btn-row">
-            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.1/Cerne.Code_0.1.1_x64-setup.exe">Cerne.Code_0.1.1_x64-setup.exe</a>
-            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/tag/v0.1.1" target="_blank" rel="noopener">查看版本说明</a>
+            <a class="btn btn-primary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_x64-setup.exe">Windows x64 · v0.1.3</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/tag/v0.1.3" target="_blank" rel="noopener">查看版本说明</a>
+
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-full.AppImage" data-release-platform="linux">Linux x64 · full AppImage</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_universal.dmg" data-release-platform="mac">macOS · Apple Silicon + Intel</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-compat.AppImage" data-release-platform="compat">Linux x64 · compat AppImage</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-full.deb" data-release-platform="deb">Linux full · .deb</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code-0.1.3-1.x86_64-full.rpm" data-release-platform="rpm">Linux full · .rpm</a>
+            <a class="btn btn-secondary" href="https://github.com/RuvianFabrin/cerne-code/releases/download/v0.1.3/Cerne.Code_0.1.3_amd64-compat.deb" data-release-platform="compatDeb">Linux compat · .deb</a>
           </div>
+          <p class="download-platform-note">Linux full 包含原生桌面截图/自动化。Compat 支持较旧的发行版，但不包含此功能。两个版本均支持浏览器任务和媒体 API。本地服务器需在各系统单独安装；视频播放依赖系统编解码器。</p>
           <div class="callout">
             <strong>开源 (MIT)。</strong> 仓库地址：
             <a href="https://github.com/RuvianFabrin/cerne-code" target="_blank" rel="noopener">github.com/RuvianFabrin/cerne-code</a>。
@@ -1353,6 +1403,7 @@
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const lang = btn.dataset.lang;
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
